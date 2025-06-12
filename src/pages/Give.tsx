@@ -64,53 +64,70 @@ const Give: React.FC = () => {
   };
 
   return (
-    <div className="max-w-2xl mx-auto px-4 py-8">
-      <h2 className="text-3xl font-bold mb-6 text-center">Give</h2>
-      <div className="space-y-4">
-        {giveOptions.map(item => (
-          <div key={item.id} className="border rounded-lg shadow overflow-hidden">
-            <button
-              onClick={() => toggleItem(item.id)}
-              className="w-full flex justify-between items-center px-4 py-3 text-left bg-gray-100 hover:bg-gray-200 transition rounded-t-lg"
-            >
-              <span className="font-semibold text-lg">{item.title}</span>
-              <span className="text-2xl font-bold transform duration-200">
-                {openItem === item.id ? '×' : '+'}
-              </span>
-            </button>
+    <div className="min-h-screen bg-white dark:bg-gray-900">
+      {/* Header */}
+      <header className="bg-gradient-to-r from-indigo-600 to-purple-700 text-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            kingdom Agendas
+          </h1>
+          <p className="text-xl md:text-2xl max-w-3xl mx-auto">
+            Take a moment to commit to our kingdom agendas,
+          </p>
+        </div>
+      </header>
 
-            <AnimatePresence>
-              {openItem === item.id && (
-                <motion.div
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: 'auto' }}
-                  exit={{ opacity: 0, height: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="overflow-hidden bg-white"
+      {/* Blogs*/}
+      <section className="py-16 bg-white">
+        <div className="max-w-2xl mx-auto px-4 py-8">
+          <h2 className="text-3xl font-bold mb-6 text-center">Give</h2>
+          <div className="space-y-4">
+            {giveOptions.map(item => (
+              <div key={item.id} className="border rounded-lg shadow overflow-hidden">
+                <button
+                  onClick={() => toggleItem(item.id)}
+                  className="w-full flex justify-between items-center px-4 py-3 text-left bg-gray-100 hover:bg-gray-200 transition rounded-t-lg"
                 >
-                  <div className="p-4">
-                    <p className="text-gray-700 mb-2">{item.details}</p>
-                    <div className="bg-gray-100 p-4 rounded space-y-2">
-                      <p><strong>Account Name:</strong> {item.account.name}</p>
-                      <div className="flex items-center justify-between">
-                        <p><strong>Account Number:</strong> {item.account.number}</p>
-                        <button
-                          onClick={() => copyToClipboard(item.account.number, item.id)}
-                          className="text-blue-600 hover:text-blue-800 text-sm flex items-center gap-1"
-                        >
-                          {copiedId === item.id ? <Check size={16} /> : <ClipboardCopy size={16} />}
-                          {copiedId === item.id ? 'Copied' : 'Copy'}
-                        </button>
+                  <span className="font-semibold text-lg">{item.title}</span>
+                  <span className="text-2xl font-bold transform duration-200">
+                    {openItem === item.id ? '×' : '+'}
+                  </span>
+                </button>
+
+                <AnimatePresence>
+                  {openItem === item.id && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden bg-white"
+                    >
+                      <div className="p-4">
+                        <p className="text-gray-700 mb-2">{item.details}</p>
+                        <div className="bg-gray-100 p-4 rounded space-y-2">
+                          <p><strong>Account Name:</strong> {item.account.name}</p>
+                          <div className="flex items-center justify-between">
+                            <p><strong>Account Number:</strong> {item.account.number}</p>
+                            <button
+                              onClick={() => copyToClipboard(item.account.number, item.id)}
+                              className="text-blue-600 hover:text-blue-800 text-sm flex items-center gap-1"
+                            >
+                              {copiedId === item.id ? <Check size={16} /> : <ClipboardCopy size={16} />}
+                              {copiedId === item.id ? 'Copied' : 'Copy'}
+                            </button>
+                          </div>
+                          <p><strong>Bank:</strong> {item.account.bank}</p>
+                        </div>
                       </div>
-                      <p><strong>Bank:</strong> {item.account.bank}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+        </div>
+      </section>
     </div>
   );
 };
