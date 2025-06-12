@@ -1,0 +1,631 @@
+ <nav className="bg-white shadow-lg sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          {/* Logo and Church Name */}
+          <Link to="/" className="flex-shrink-0 flex items-center">
+            <div className="h-10 w-10 bg-blue-600 rounded-full flex items-center justify-center mr-3">
+              <span className="text-white font-bold text-xl">✞</span>
+            </div>
+            <div className="text-xl font-bold text-gray-800">
+               Church
+            </div>
+          </Link>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:block">
+            <div className="ml-10 flex items-baseline space-x-8">
+              <Link to="/" className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">
+                Home
+              </Link>
+              
+              {/* About Us Dropdown */}
+              <div className="relative">
+                <button
+                  onClick={toggleAboutDropdown}
+                  className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium flex items-center transition-colors"
+                >
+                  About Us
+                  <ChevronDown className={`ml-1 h-4 w-4 transition-transform ${isAboutDropdownOpen ? 'rotate-180' : ''}`} />
+                </button>
+                
+                {isAboutDropdownOpen && (
+                  <div className="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5">
+                    <div className="py-1">
+                      <Link to="/our-founder" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                        Our Founder
+                      </Link>
+                      <Link to="/organograms" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                        Organograms
+                      </Link>
+                      <Link to="/ministries" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                        Ministries
+                      </Link>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              <Link to="/messages" className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">
+                Messages
+              </Link>
+              <Link to="/give" className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">
+                Give
+              </Link>
+              <Link to="/satellite-centers" className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">
+                Satellite Centers
+              </Link>
+            </div>
+          </div>
+
+          {/* Mobile menu button */}
+          <div className="md:hidden">
+            <button
+              onClick={toggleMenu}
+              className="text-gray-700 hover:text-blue-600 p-2"
+            >
+              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Navigation */}
+      {isMenuOpen && (
+        <div className="md:hidden bg-white border-t">
+          <div className="px-2 pt-2 pb-3 space-y-1">
+            <Link to="/" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">
+              Home
+            </Link>
+            
+            {/* Mobile About Us Section */}
+            <div className="px-3 py-2">
+              <button
+                onClick={toggleAboutDropdown}
+                className="flex items-center justify-between w-full text-base font-medium text-gray-700 hover:text-blue-600"
+              >
+                About Us
+                <ChevronDown className={`h-4 w-4 transition-transform ${isAboutDropdownOpen ? 'rotate-180' : ''}`} />
+              </button>
+              
+              {isAboutDropdownOpen && (
+                <div className="mt-2 pl-4 space-y-2">
+                  <Link to="/our-founder" className="block text-sm text-gray-600 hover:text-blue-600">
+                    Our Founder
+                  </Link>
+                  <Link to="/organograms" className="block text-sm text-gray-600 hover:text-blue-600">
+                    Organograms
+                  </Link>
+                  <Link to="/ministries" className="block text-sm text-gray-600 hover:text-blue-600">
+                    Ministries
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            <Link to="/messages" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">
+              Messages
+            </Link>
+            <Link to="/give" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">
+              Give
+            </Link>
+            <Link to="/satellite-centers" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">
+              Satellite Centers
+            </Link>
+          </div>
+        </div>
+      )}
+    </nav>
+
+    <!-- old homepage -->
+     import TestimonialSlider from '../components/TestimonialSlider';
+import CallToAction from '../components/CallToAction';
+import ContactInfoCard from '../components/ContactInfoCard';
+import Footer from '../components/Footer';
+import { MapPin, Clock, Phone } from "lucide-react";
+
+const testimonials = [
+  { name: "John Doe", rating: 5, text: "Great community!" },
+  { name: "Jane Smith", rating: 4, text: "Loved the service!" }
+];
+
+const contactInfo = [
+  {
+    icon: MapPin,
+    title: "Visit Us",
+    content: "123 Church Street\nPort Harcourt, Rivers State\nNigeria",
+    color: "#60a5fa"
+  },
+  {
+    icon: Clock,
+    title: "Service Times",
+    content: "Sunday: 8:00 AM & 10:30 AM\nWednesday: 7:00 PM\nFriday: 6:00 PM",
+    color: "#34d399"
+  },
+  {
+    icon: Phone,
+    title: "Connect",
+    content: "info@truthenforcers.church\n+234 (0) 123-456-7890",
+    color: "#a78bfa"
+  }
+];
+
+const Homepage = () => (
+  <div>
+    <TestimonialSlider testimonials={testimonials} />
+    <CallToAction />
+    <section id="contact" className="py-16 bg-gray-900 text-white">
+      <div className="max-w-6xl mx-auto px-4">
+        <div className="grid md:grid-cols-3 gap-8">
+          {contactInfo.map((info, index) => (
+            <ContactInfoCard key={index} {...info} />
+          ))}
+        </div>
+        <Footer />
+      </div>
+    </section>
+  </div>
+);
+
+export default Homepage;
+
+
+<!--  -->
+<a href="#" className="inline-flex justify-center items-center py-2.5 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
+            Read more
+            <svg className="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+            </svg>
+          </a>
+
+
+          <!-- about -->
+           import React from 'react';
+import { User, Users, Heart, Award, BookOpen, Target } from 'lucide-react';
+
+const About: React.FC = () => {
+  return (
+    <div className="min-h-screen bg-white dark:bg-gray-900">
+      {/* Header */}
+      <section className="bg-gradient-to-r from-blue-600 to-purple-700 text-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">About Us</h1>
+            <p className="text-xl md:text-2xl max-w-3xl mx-auto">
+              Learn about our church family, mission, and the people who make it all possible
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Story */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Story</h2>
+            <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+              Founded in faith and built on love, Grace Community Church has been serving our community 
+              for over 25 years. We believe in the transformative power of God's love and are committed 
+              to sharing that message with everyone we meet.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h3 className="text-2xl font-semibold text-gray-900 mb-4">Our Mission</h3>
+              <p className="text-gray-600 mb-6">
+                To glorify God by making disciples of Jesus Christ, building a community of faith, 
+                hope, and love, and serving our neighbors with compassion and grace.
+              </p>
+              <div className="space-y-4">
+                <div className="flex items-start">
+                  <Target className="h-6 w-6 text-blue-600 mr-3 mt-1" />
+                  <div>
+                    <h4 className="font-semibold">Worship</h4>
+                    <p className="text-gray-600">Celebrating God's goodness together</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <Users className="h-6 w-6 text-blue-600 mr-3 mt-1" />
+                  <div>
+                    <h4 className="font-semibold">Community</h4>
+                    <p className="text-gray-600">Building meaningful relationships</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <Heart className="h-6 w-6 text-blue-600 mr-3 mt-1" />
+                  <div>
+                    <h4 className="font-semibold">Service</h4>
+                    <p className="text-gray-600">Serving others with Christ's love</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="bg-gray-200 rounded-lg h-96 flex items-center justify-center">
+              <p className="text-gray-500 text-lg">Church Image Placeholder</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Values */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Core Values</h2>
+            <p className="text-xl text-gray-600">
+              Seeing the truth is embraced and enforced in our deliberately and willing
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                <BookOpen className="h-8 w-8 text-blue-600" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Scripture</h3>
+              <p className="text-gray-600">God's Word as our foundation and guide</p>
+            </div>
+            <div className="text-center">
+              <div className="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                <Heart className="h-8 w-8 text-green-600" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Love</h3>
+              <p className="text-gray-600">Showing Christ's love in all we do</p>
+            </div>
+            <div className="text-center">
+              <div className="bg-purple-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                <Users className="h-8 w-8 text-purple-600" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Unity</h3>
+              <p className="text-gray-600">Building authentic community together</p>
+            </div>
+            <div className="text-center">
+              <div className="bg-yellow-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                <Award className="h-8 w-8 text-yellow-600" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Excellence</h3>
+              <p className="text-gray-600">Honoring God with our best efforts</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Leadership Team */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Leadership</h2>
+            <p className="text-xl text-gray-600">
+              Meet the dedicated team serving our church family
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="bg-gray-200 rounded-full w-32 h-32 flex items-center justify-center mx-auto mb-4">
+                <User className="h-16 w-16 text-gray-400" />
+              </div>
+              <h3 className="text-xl font-semibold mb-1">Pastor John Smith</h3>
+              <p className="text-gray-600 mb-2">Senior Pastor</p>
+              <p className="text-sm text-gray-500">
+                Leading our congregation with wisdom and compassion for over 15 years
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="bg-gray-200 rounded-full w-32 h-32 flex items-center justify-center mx-auto mb-4">
+                <User className="h-16 w-16 text-gray-400" />
+              </div>
+              <h3 className="text-xl font-semibold mb-1">Pastor Sarah Johnson</h3>
+              <p className="text-gray-600 mb-2">Associate Pastor</p>
+              <p className="text-sm text-gray-500">
+                Passionate about discipleship and community outreach ministries
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="bg-gray-200 rounded-full w-32 h-32 flex items-center justify-center mx-auto mb-4">
+                <User className="h-16 w-16 text-gray-400" />
+              </div>
+              <h3 className="text-xl font-semibold mb-1">Mark Davis</h3>
+              <p className="text-gray-600 mb-2">Worship Pastor</p>
+              <p className="text-sm text-gray-500">
+                Creating meaningful worship experiences that connect hearts to God
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
+    <section className="my-8">
+      {/* Mobile Select Dropdown */}
+      <div className="sm:hidden">
+        <label htmlFor="tabs" className="sr-only">Select a section</label>
+        <select
+          id="tabs"
+          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+                     focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700
+                     dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+          onChange={(e) => setActiveTab(e.target.value)}
+        >
+          <option value="Ministries">Ministries</option>
+          <option value="Service Units">Service Units</option>
+          <option value="Covenant Partners">Covenant Partners</option>
+        </select>
+      </div>
+
+      {/* Tab Buttons (Desktop) */}
+      <ul className="hidden sm:flex text-sm font-medium text-center text-gray-500 rounded-lg shadow-sm dark:divide-gray-700 dark:text-gray-400">
+        {["Ministries", "Service Units", "Covenant Partners"].map((tab) => (
+          <li className="w-full" key={tab}>
+            <button
+              onClick={() => setActiveTab(tab)}
+              className={`inline-block w-full p-4 border-r border-gray-200 dark:border-gray-700
+                         focus:ring-4 focus:outline-none ${
+                           activeTab === tab
+                             ? "text-gray-900 bg-gray-100 dark:bg-gray-700 dark:text-white"
+                             : "bg-white hover:text-gray-700 hover:bg-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white"
+                         }`}
+            >
+              {tab}
+            </button>
+          </li>
+        ))}
+      </ul>
+
+      {/* Tab Content */}
+      <div className="mt-6 p-4 bg-white dark:bg-gray-800 rounded shadow">
+        {activeTab === "Ministries" && (
+          <div>
+            <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-white">Ministries</h3>
+            <p className="text-gray-600 dark:text-gray-300">
+              Details about the various ministries and their roles within the church community.
+            </p>
+          </div>
+        )}
+        {activeTab === "Service Units" && (
+          <div>
+            <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-white">Service Units</h3>
+            <p className="text-gray-600 dark:text-gray-300">
+              Learn about our service units, their purpose, and how you can join.
+            </p>
+          </div>
+        )}
+        {activeTab === "Covenant Partners" && (
+          <div>
+            <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-white">Covenant Partners</h3>
+            <p className="text-gray-600 dark:text-gray-300">
+              Partner with us in ministry and support the mission of Truth Enforcers Church.
+            </p>
+          </div>
+        )}
+      </div>
+    </section>
+
+
+    </div>
+  );
+};
+
+export default About;
+
+
+import React, { useState } from 'react';
+import { Play, Calendar, User, Search, Filter, X } from 'lucide-react';
+
+interface Message {
+  id: number;
+  title: string;
+  speaker: string;
+  date: string;
+  duration: string;
+  description: string;
+  series: string;
+  thumbnail: string;
+}
+
+const Messages: React.FC = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedSeries, setSelectedSeries] = useState('All');
+
+  const messages: Message[] = [
+    {
+      id: 1,
+      title: "Walking in Faith",
+      speaker: "Pastor John Doe",
+      date: "2024-01-15",
+      duration: "35 min",
+      description: "Discover what it means to trust God completely in every season of life.",
+      series: "Faith Series",
+      thumbnail: "bg-gradient-to-r from-blue-400 to-purple-500"
+    },
+    {
+      id: 2,
+      title: "The Power of Prayer",
+      speaker: "Pastor Jane Smith",
+      date: "2024-01-08",
+      duration: "42 min",
+      description: "Understanding how prayer transforms both our hearts and circumstances.",
+      series: "Prayer Series",
+      thumbnail: "bg-gradient-to-r from-green-400 to-blue-500"
+    },
+    {
+      id: 3,
+      title: "Living with Purpose",
+      speaker: "Pastor John Doe",
+      date: "2024-01-01",
+      duration: "38 min",
+      description: "Finding and fulfilling God's unique calling on your life.",
+      series: "Purpose Series",
+      thumbnail: "bg-gradient-to-r from-purple-400 to-pink-500"
+    },
+    {
+      id: 4,
+      title: "God's Grace in Action",
+      speaker: "Pastor Sarah Johnson",
+      date: "2023-12-25",
+      duration: "45 min",
+      description: "Experiencing the transformative power of God's unmerited favor.",
+      series: "Grace Series",
+      thumbnail: "bg-gradient-to-r from-red-400 to-orange-500"
+    },
+    {
+      id: 5,
+      title: "Building Strong Relationships",
+      speaker: "Pastor Mike Brown",
+      date: "2023-12-18",
+      duration: "40 min",
+      description: "Biblical principles for healthy relationships in family and community.",
+      series: "Relationships Series",
+      thumbnail: "bg-gradient-to-r from-teal-400 to-green-500"
+    },
+    {
+      id: 6,
+      title: "Overcoming Fear with Faith",
+      speaker: "Pastor John Doe",
+      date: "2023-12-11",
+      duration: "33 min",
+      description: "How to conquer fear and anxiety through trust in God's promises.",
+      series: "Faith Series",
+      thumbnail: "bg-gradient-to-r from-indigo-400 to-blue-500"
+    }
+  ];
+
+  const series = ['All', ...Array.from(new Set(messages.map(msg => msg.series)))];
+
+  const filteredMessages = messages.filter(message => {
+    const matchesSearch = message.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      message.speaker.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      message.description.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesSeries = selectedSeries === 'All' || message.series === selectedSeries;
+    return matchesSearch && matchesSeries;
+  });
+
+  return (
+    <div className="min-h-screen bg-white dark:bg-gray-900">
+      {/* Header */}
+      <section className="bg-gradient-to-r from-blue-600 to-purple-700 text-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">Messages</h1>
+            <p className="text-xl md:text-2xl">Be encouraged by God's Word</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Search and Filter */}
+      <section className="py-8 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
+
+            {/* Search */}
+            <div className="w-full max-w-md">
+              <div className="relative">
+                {/* Search Icon */}
+                <Search className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
+
+                {/* Input Field */}
+                <input
+                  type="text"
+                  placeholder="Search messages..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="block w-full pl-10 pr-10 h-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
+                />
+
+                {/* Clear Button (X Icon) */}
+                {searchTerm && (
+                  <button
+                    type="button"
+                    onClick={() => setSearchTerm('')}
+                    className="absolute right-3 top-2.5 text-gray-400 hover:text-gray-600"
+                  >
+                    <X className="h-4 w-4" />
+                  </button>
+                )}
+              </div>
+            </div>
+
+            {/* Filter */}
+            <div className="flex items-center gap-2">
+              <Filter className="h-5 w-5 text-gray-500" />
+              <select
+                value={selectedSeries}
+                onChange={(e) => setSelectedSeries(e.target.value)}
+                className="border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              >
+                {series.map(seriesName => (
+                  <option key={seriesName} value={seriesName}>{seriesName}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Messages Grid */}
+      <section className="py-8  bg-gray-500">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredMessages.map(message => (
+              <div key={message.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                {/* Thumbnail */}
+                <div className={`h-48 ${message.thumbnail} relative group`}>
+                  <div className="absolute inset-0 bg-black opacity-30 group-hover:opacity-40 transition-opacity"></div>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <button className="bg-white bg-opacity-90 rounded-full p-4 hover:bg-opacity-100 transition-all group-hover:scale-110">
+                      <Play className="h-8 w-8 text-blue-600 ml-1" />
+                    </button>
+                  </div>
+                  <div className="absolute bottom-4 right-4 bg-black bg-opacity-70 text-white px-2 py-1 rounded text-sm">
+                    {message.duration}
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="p-6">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-sm text-blue-600 font-semibold">{message.series}</span>
+                    <span className="text-sm text-gray-500">{new Date(message.date).toLocaleDateString()}</span>
+                  </div>
+
+                  <h3 className="text-xl font-bold text-gray-800 mb-2">{message.title}</h3>
+
+                  <div className="flex items-center mb-3">
+                    <User className="h-4 w-4 text-gray-400 mr-2" />
+                    <span className="text-gray-600">{message.speaker}</span>
+                  </div>
+
+                  <p className="text-gray-600 mb-4">{message.description}</p>
+
+                  <div className="flex items-center justify-between">
+                    <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center">
+                      <Play className="h-4 w-4 mr-2" />
+                      Watch Now
+                    </button>
+                    <div className="flex items-center text-gray-500">
+                      <Calendar className="h-4 w-4 mr-1" />
+                      <span className="text-sm">{new Date(message.date).toLocaleDateString()}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {filteredMessages.length === 0 && (
+            <div className="text-center py-12">
+              <p className="text-gray-500 text-lg">No messages found matching your search criteria.</p>
+            </div>
+          )}
+        </div>
+
+        <div className="max-w-7xl mx-auto py-5 px-4 sm:px-6 lg:px-8 text-center">
+          <button className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+            Load More Messages
+          </button>
+        </div>
+      </section>
+
+    </div>
+  );
+};
+
+export default Messages;
