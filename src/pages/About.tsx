@@ -5,30 +5,30 @@ import { useLocation } from "react-router-dom";
 // const useQuery = () => new URLSearchParams(useLocation().search);
 
 import { User, Users, Heart, Award, BookOpen, Target } from 'lucide-react';
- 
+
 const About: React.FC = () => {
-    const location = useLocation();
-    const [activeTab, setActiveTab] = useState("Ministries");
-    const tabSectionRef = useRef<HTMLElement | null>(null);
+  const location = useLocation();
+  const [activeTab, setActiveTab] = useState("Ministries");
+  const tabSectionRef = useRef<HTMLElement | null>(null);
 
 
-    // Update activeTab when the page loads and URL has a tab query
-    useEffect(() => {
-  const params = new URLSearchParams(location.search);
-  const tabParam = params.get("tab");
+  // Update activeTab when the page loads and URL has a tab query
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const tabParam = params.get("tab");
 
-  if (tabParam === "Ministries" || tabParam === "Service Units" || tabParam === "Covenant Partners") {
-    setActiveTab(tabParam);
+    if (tabParam === "Ministries" || tabParam === "Service Units" || tabParam === "Covenant Partners") {
+      setActiveTab(tabParam);
 
-    // Scroll to tab section after slight delay to ensure render
-    setTimeout(() => {
-      tabSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
-    }, 100);
-  }
-}, [location.search]);
+      // Scroll to tab section after slight delay to ensure render
+      setTimeout(() => {
+        tabSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }
+  }, [location.search]);
 
 
-  
+
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900">
@@ -42,23 +42,26 @@ const About: React.FC = () => {
         </div>
       </section>
 
-     {/* Our Story */}
+      {/* Our Story */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Story</h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-              Founded in faith and built on love, Grace Community Church has been serving our community 
-              for over 25 years. We believe in the transformative power of God's love and are committed 
+              Founded in faith and built on love, Grace Community Church has been serving our community
+              for over 25 years. We believe in the transformative power of God's love and are committed
               to sharing that message with everyone we meet.
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="bg-gray-200 rounded-lg h-96 flex items-center justify-center">
+              <p className="text-gray-500 text-lg">Church Image Placeholder</p>
+            </div>
             <div>
               <h3 className="text-2xl font-semibold text-gray-900 mb-4">Our Mission</h3>
               <p className="text-gray-600 mb-6">
-                To glorify God by making disciples of Jesus Christ, building a community of faith, 
+                To glorify God by making disciples of Jesus Christ, building a community of faith,
                 hope, and love, and serving our neighbors with compassion and grace.
               </p>
               <h3 className="text-2xl font-semibold text-gray-900 mb-4">Our Vision</h3>
@@ -89,9 +92,7 @@ const About: React.FC = () => {
                 </div>
               </div>
             </div>
-            <div className="bg-gray-200 rounded-lg h-96 flex items-center justify-center">
-              <p className="text-gray-500 text-lg">Church Image Placeholder</p>
-            </div>
+
           </div>
         </div>
       </section>
@@ -152,7 +153,7 @@ const About: React.FC = () => {
               <div className="bg-gray-200 rounded-full w-32 h-32 flex items-center justify-center mx-auto mb-4">
                 <User className="h-16 w-16 text-gray-400" />
               </div>
-              <h3 className="text-xl font-semibold mb-1">Pastor John Smith</h3>
+              <h3 className="text-xl font-semibold mb-1">Pastor Zerubabbel</h3>
               <p className="text-gray-600 mb-2">Senior Pastor</p>
               <p className="text-sm text-gray-500">
                 Leading our congregation with wisdom and compassion for over 15 years
@@ -208,10 +209,9 @@ const About: React.FC = () => {
               <button
                 onClick={() => setActiveTab(tab)}
                 className={`inline-block w-full p-4 transition-all duration-200 relative
-                  ${
-                    activeTab === tab
-                      ? "text-blue-600 bg-gray-100 dark:bg-gray-700 dark:text-white font-semibold after:absolute after:bottom-0 after:left-0 after:right-0 after:h-1 after:bg-blue-600"
-                      : "bg-white hover:text-gray-700 hover:bg-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white"
+                  ${activeTab === tab
+                    ? "text-blue-600 bg-gray-100 dark:bg-gray-700 dark:text-white font-semibold after:absolute after:bottom-0 after:left-0 after:right-0 after:h-1 after:bg-blue-600"
+                    : "bg-white hover:text-gray-700 hover:bg-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white"
                   }`}
               >
                 {tab}
