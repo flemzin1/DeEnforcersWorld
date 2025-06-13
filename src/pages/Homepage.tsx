@@ -44,11 +44,12 @@ const Homepage = () => (
             hope, and love, and serving our neighbors with compassion and grace.</p>
         </div>
         <div>
-          <p className="text-2xl font-semibold text-gray-900">Our Vission</p>
+          <p className="text-2xl font-semibold text-gray-900">Our Vision</p>
           <p className="mb-3 text-gray-700 dark:text-gray-700">Seeing the truth is embraced and enforced in our deliberately and willing.</p>
         </div>
       </div>
-      <p className="mb-3 text-gray-500 dark:text-gray-400">Deliver great service experiences fast - without the complexity of traditional ITSM solutions.Accelerate critical development work, eliminate toil, and deploy changes with ease, with a complete audit trail for every change.</p>
+      <p className="text-2xl font-semibold text-gray-900">Our Core Value</p>
+      <p className="mb-3 text-gray-500 dark:text-gray-400">Living and doer of the truth.</p>
     </section>
 
 
