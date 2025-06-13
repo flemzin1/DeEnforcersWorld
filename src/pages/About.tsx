@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useLocation } from "react-router-dom";
 
 // Custom hook to get query parameters
-const useQuery = () => new URLSearchParams(useLocation().search);
+// const useQuery = () => new URLSearchParams(useLocation().search);
 
 import { User, Users, Heart, Award, BookOpen, Target } from 'lucide-react';
  
