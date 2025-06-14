@@ -10,10 +10,10 @@ const Navbar: React.FC = () => {
     const toggleMobileMenu = () => {
       const mobileMenu = mobileMenuRef.current;
       const button = mobileMenuButtonRef.current;
-      
+
       if (mobileMenu && button) {
         const isHidden = mobileMenu.classList.contains('hidden');
-        
+
         if (isHidden) {
           mobileMenu.classList.remove('hidden');
           button.setAttribute('aria-expanded', 'true');
@@ -29,7 +29,7 @@ const Navbar: React.FC = () => {
       const dropdown = dropdownRefs.current[dropdownId];
       if (dropdown) {
         const isHidden = dropdown.classList.contains('hidden');
-        
+
         // Close all other dropdowns first
         Object.entries(dropdownRefs.current).forEach(([id, dd]) => {
           if (dd && id !== dropdownId) {
@@ -84,10 +84,10 @@ const Navbar: React.FC = () => {
     // Close dropdowns when clicking outside
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as Element;
-      
+
       // Close mobile menu if clicking outside
-      if (mobileMenuRef.current && !mobileMenuRef.current.contains(target) && 
-          mobileMenuButtonRef.current && !mobileMenuButtonRef.current.contains(target)) {
+      if (mobileMenuRef.current && !mobileMenuRef.current.contains(target) &&
+        mobileMenuButtonRef.current && !mobileMenuButtonRef.current.contains(target)) {
         mobileMenuRef.current.classList.add('hidden');
         if (mobileMenuButtonRef.current) {
           mobileMenuButtonRef.current.setAttribute('aria-expanded', 'false');
@@ -126,14 +126,23 @@ const Navbar: React.FC = () => {
     dropdownRefs.current[id] = el;
   };
 
+  const churchName = "De Enforcers World";
+  const logoUrl = "";
+
   return (
     <nav className="bg-white border-gray-200 dark:bg-white-900 dark:border-gray-700 shadow-lg">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-          <img src="" className="h-8" alt="Truth Logo" />
-          <span className="self-center text-2xl font-semibold whitespace-nowrap">De Enforcers World</span>
+        <a href="/" className="flex items-center space-x-1 rtl:space-x-reverse">
+          {logoUrl ? (
+            <>
+              <img src={logoUrl} className="h-8" alt={churchName} />
+              <span className="self-center text-2xl font-semibold whitespace-nowrap">{churchName}</span>
+            </>
+          ) : (
+            <span className="self-center text-2xl font-semibold whitespace-nowrap">{churchName}</span>
+          )}
         </a>
-        
+
         <button
           ref={mobileMenuButtonRef}
           type="button"
@@ -152,22 +161,22 @@ const Navbar: React.FC = () => {
             />
           </svg>
         </button>
-        
-        <div 
+
+        <div
           ref={mobileMenuRef}
-          className="hidden w-full md:block md:w-auto" 
+          className="hidden w-full md:block md:w-auto"
           id="navbar-dropdown"
         >
           <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-white-900 md:dark:bg-white-900 dark:border-white-700">
             <li>
-              <a 
-                href="/" 
+              <a
+                href="/"
                 className="block py-2 px-3 text-gray rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0  md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent transition-colors"
               >
                 Home
               </a>
             </li>
-            
+
             <li className="relative">
               <button
                 id="dropdownNavbarAboutButton"
@@ -184,7 +193,7 @@ const Navbar: React.FC = () => {
                   />
                 </svg>
               </button>
-              
+
               <div
                 ref={setDropdownRef('dropdownNavbarAbout')}
                 id="dropdownNavbarAbout"
@@ -200,7 +209,7 @@ const Navbar: React.FC = () => {
                 </ul>
               </div>
             </li>
-            
+
             <li className="relative">
               <button
                 id="dropdownNavbarProgramsButton"
@@ -217,7 +226,7 @@ const Navbar: React.FC = () => {
                   />
                 </svg>
               </button>
-              
+
               <div
                 ref={setDropdownRef('dropdownNavbarPrograms')}
                 id="dropdownNavbarPrograms"
@@ -230,15 +239,15 @@ const Navbar: React.FC = () => {
                 </ul>
               </div>
             </li>
-            
+
             <li>
               <a href="/messages" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Messages</a>
             </li>
-            
+
             <li>
               <a href="/satellite-centers" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Satellite Centers</a>
             </li>
-            
+
             <li>
               <a href="/give" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Kingdom Agendas</a>
             </li>

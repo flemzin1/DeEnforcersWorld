@@ -33,7 +33,7 @@ const Footer = () => (
                       clipRule="evenodd"
                     />
                   </svg>
-                  <span className="text-sm md:text-base whitespace-nowrap">TEL: +234 9035262719</span>
+                  <span className="text-sm md:text-base whitespace-nowrap">TEL: +234 8058339408</span>
                 </a>
               </li>
 

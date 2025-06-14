@@ -30,9 +30,9 @@ const About: React.FC = () => {
 
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900">
+    <div className="min-h-screen bg-white dark:bg-gray-900 bg-gradient-to-r from-indigo-600 via-gray-700">
       {/* Header */}
-      <section className="bg-gradient-to-r from-blue-600 to-purple-700 text-white py-16">
+      <section className="bg-gradient-to-r from-indigo-600 via-gray-700 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">About Us</h1>
           <p className="text-xl md:text-2xl max-w-3xl mx-auto">
@@ -183,7 +183,7 @@ const About: React.FC = () => {
       </section>
 
       {/* Tab Section */}
-      <section className="my-8 px-4" ref={tabSectionRef}>
+      <section className="my-8 px-4 bg-gradient-to-r from-indigo-600 via-gray-700" ref={tabSectionRef}>
         {/* Mobile Dropdown */}
         <div className="sm:hidden mb-4">
           <label htmlFor="tabs" className="sr-only">Select a section</label>
@@ -220,7 +220,7 @@ const About: React.FC = () => {
         </ul>
 
         {/* Tab Content */}
-        <div className="mt-6 p-4 bg-white dark:bg-gray-800 rounded shadow">
+        <div className="mt-6 p-4 bg-white dark:bg-gray-800 rounded shadow bg-gradient-to-r from-indigo-600 via-gray-700">
           {activeTab === "Ministries" && (
             <>
               <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-white">Ministries</h3>

@@ -15,7 +15,7 @@ const Homepage = () => (
         <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
           <a
             href="/about"
-            className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-gradient-to-br from-blue-600 via-purple-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm text-center me-2 mb-2"
+            className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-gradient-to-br from-blue-600 via-purple-500 hover:bg-gradient-to-bl focus:ring-4  focus:ring-transparent-900 dark:focus:ring-purple-500 font-medium rounded-lg text-sm text-center me-2 mb-2"
           >
             About Us
             <svg className="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
@@ -56,7 +56,7 @@ const Homepage = () => (
     {/* About */}
     <section className="bg-white ">
       <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16">
-        <div className="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-8 md:p-12 mb-8">
+        <div className="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-8 md:p-12 mb-8 bg-gradient-to-r from-indigo-600 via-gray-700">
           <h1 className="text-gray-900 dark:text-white text-3xl md:text-5xl font-extrabold mb-2">Welcome</h1>
           <p className="text-lg font-normal text-gray-500 dark:text-gray-400 mb-6">Truth Enforcers Bible Church Intl is a truly spiritual and christain church.</p>
 
@@ -113,7 +113,7 @@ const Homepage = () => (
 
             <button type="button" className="text-white bg-gradient-to-br from-pink-500 via-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
               <a href="/messages"
-                className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-transparent-700 hover:bg-transparent-800 focus:ring-4 focus:ring-transparent-300 dark:focus:ring--orange-400"
+                className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-transparent-700 hover:bg-transparent-800 focus:ring-4 focus:ring-transparent-300 dark:focus:ring-orange-600"
               >
                 Messages
                 <svg className="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">

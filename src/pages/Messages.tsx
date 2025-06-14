@@ -8,9 +8,9 @@ interface Message {
   title: string;
   speaker: string;
   date: string;
-  duration: string; 
+  duration: string;
   description: string;
-  series: string; 
+  series: string;
   thumbnail: string;
   videoUrl: string;
 }
@@ -115,9 +115,9 @@ const Messages: React.FC = () => {
   });
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900">
+    <div className="min-h-screen bg-white dark:bg-gray-900 bg-gradient-to-r from-indigo-600 via-gray-700">
       {/* Header */}
-      <section className="bg-gradient-to-r from-blue-600 to-purple-700 text-white py-16">
+      <section className="bg-gradient-to-r from-indigo-600 via-gray-700 text-white py-16">
         <div className="max-w-7xl mx-auto text-center px-4">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Messages</h1>
           <p className="text-xl md:text-2xl">Be encouraged by God's Word</p>
@@ -216,7 +216,7 @@ const Messages: React.FC = () => {
                 <div className="flex items-center justify-between">
                   <button
                     onClick={() => openVideo(message)}
-                    className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center focus:outline-none focus:ring-4 focus:ring-blue-300"
+                    className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center bg-gradient-to-br from-blue-600 via-gray-900 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-600 font-medium rounded-lg text-sm px-5 py-2.5"
                   >
                     <Play className="h-4 w-4 mr-2" />
                     Watch Now
@@ -239,8 +239,8 @@ const Messages: React.FC = () => {
 
         <div className="max-w-7xl mx-auto py-5 px-4 text-center">
           <button
-            className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300"
-            onClick={() => alert('Load More Messages clicked!')}
+            className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors items-center bg-gradient-to-br from-blue-600 via-gray-900 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-50 font-medium rounded-lg text-sm px-5 py-2.5"
+          // onClick={() => alert('Load More Messages clicked!')}v
           >
             Load More Messages
           </button>
@@ -249,8 +249,21 @@ const Messages: React.FC = () => {
 
       {/* Video Playback Modal */}
       <Modal show={openModal} onClose={closeModal} dismissible>
-        <div className="p-4">
-          <h3 className="text-xl font-semibold mb-4">{selectedMessage?.title}</h3>
+        <div className="relative p-4 bg-gradient-to-r from-indigo-600 via-gray-700">
+
+          {/* X Close Button */}
+          <button
+            onClick={closeModal}
+            className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white"
+            aria-label="Close modal"
+          >
+            <X className="w-6 h-6" />
+          </button>
+
+          <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">
+            {selectedMessage?.title}
+          </h3>
+
           {selectedMessage && (
             <>
               <video
@@ -262,11 +275,13 @@ const Messages: React.FC = () => {
                 onPlay={() => setIsPlaying(true)}
                 onPause={() => setIsPlaying(false)}
               />
+
               <div className="flex justify-between items-center mt-4">
                 <p className="text-sm text-gray-600 dark:text-gray-400">
                   {selectedMessage.speaker} •{' '}
                   {new Date(selectedMessage.date).toLocaleDateString()} • {selectedMessage.duration}
                 </p>
+
                 <button
                   onClick={handlePlayPause}
                   className="bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300"
@@ -275,11 +290,15 @@ const Messages: React.FC = () => {
                   {isPlaying ? <Pause className="h-5 w-5" /> : <Play className="h-5 w-5" />}
                 </button>
               </div>
-              <p className="text-sm text-gray-700 dark:text-gray-300 mt-2">{selectedMessage.description}</p>
+
+              <p className="text-sm text-gray-700 dark:text-gray-300 mt-2">
+                {selectedMessage.description}
+              </p>
             </>
           )}
         </div>
       </Modal>
+
 
     </div>
   );

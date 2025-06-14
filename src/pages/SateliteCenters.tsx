@@ -69,9 +69,9 @@ const SatelliteCenters: React.FC = () => {
   ];
 
   return (
-    <div className="min-h- bg-white dark:bg-gray-900">
+    <div className="min-h- bg-white dark:bg-gray-900 bg-gradient-to-r from-indigo-600 via-gray-700">
       {/* Header */}
-      <section className="bg-gradient-to-r from-purple-600 to-pink-600 text-white py-16">
+      <section className="bg-gradient-to-r from-indigo-600 via-gray-700 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">Satellite Centers</h1>
@@ -185,10 +185,10 @@ const SatelliteCenters: React.FC = () => {
                   </div>
 
                   <div className="mt-6 flex space-x-3">
-                    <button className="flex-1 bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition-colors">
+                    <button className="flex-1 bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition-colors bg-gradient-to-br from-blue-600 via-gray-900 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-50 font-medium ">
                       Visit Us
                     </button>
-                    <button className="flex-1 border border-purple-600 text-purple-600 py-2 px-4 rounded-lg hover:bg-purple-50 transition-colors">
+                    <button className="flex-1 border border-purple-600 text-purple-600 py-2 px-4 rounded-lg hover:bg-purple-50 transition-colors bg-gradient-to-br from-blue-600 via-white-900 hover:bg-gradient-to-bl">
                       Get Directions
                     </button>
                   </div>
