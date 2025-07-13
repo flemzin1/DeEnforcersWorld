@@ -1,68 +1,66 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Helmet } from '@dr.pogodin/react-helmet';
+// const useQuery = () => new URLSearchParams(useLocation().search);
+
 import { User, Users, Heart, Award, BookOpen, Target } from 'lucide-react';
 
 const tabMeta: Record<string, { title: string; description: string }> = {
   Ministries: {
     title: 'Ministries | About | De Enforcers World',
-    description: 'Discover the various ministries that empower lives at De Enforcers World.'
+    description: 'Discover the various ministries that empower lives at De Enforcers World.',
   },
   'Service Units': {
     title: 'Service Units | About | De Enforcers World',
-    description: 'Explore our dedicated service units shaping our community work.'
+    description: 'Explore our dedicated service units shaping our community work.',
   },
   'Covenant Partners': {
     title: 'Covenant Partners | About | De Enforcers World',
-    description: 'Meet our Covenant Partners who support the mission of De Enforcers World.'
-  }
+    description: 'Meet our Covenant Partners who support the mission of De Enforcers World.',
+  },
 };
 
 const About: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState("Ministries");
+  const [activeTab, setActiveTab] = useState<string | null>(null);
   const tabSectionRef = useRef<HTMLElement | null>(null);
 
-  // Set tab from URL
   useEffect(() => {
     const params = new URLSearchParams(location.search);
-    const tabParam = params.get("tab");
+    const tabParam = params.get('tab');
     const validTabs = Object.keys(tabMeta);
 
     if (tabParam && validTabs.includes(tabParam)) {
       setActiveTab(tabParam);
-
       setTimeout(() => {
         tabSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
       }, 100);
     }
   }, [location.search]);
 
-  // Tab metadata
-  const { title, description } = tabMeta[activeTab] || {
-    title: 'About | De Enforcers World',
-    description: 'Learn more about our vision, ministries, and the people driving our mission.'
-  };
-
-  // Update tab and URL
   const handleTabChange = (tab: string) => {
     setActiveTab(tab);
     navigate(`?tab=${encodeURIComponent(tab)}`);
   };
 
+  const helmetContent = activeTab ? tabMeta[activeTab] : {
+    title: 'About | De Enforcers World',
+    description: 'Learn more about our mission, ministries, and the people who make it all possible.',
+  };
+
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 bg-gradient-to-r from-indigo-600 via-gray-700">
       <Helmet>
-        <title>{title}</title>
-        <meta name="description" content={description} />
+        <title>{helmetContent.title}</title>
+        <meta name="description" content={helmetContent.description} />
         <link
           rel="canonical"
-          href={`https://deenforcersworld.com/about?tab=${encodeURIComponent(activeTab)}`}
+          href={`https://deenforcersworld.com/about${activeTab ? `?tab=${encodeURIComponent(activeTab)}` : ''}`}
         />
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
-        <meta property="og:url" content={`https://deenforcersworld.com/about?tab=${encodeURIComponent(activeTab)}`} />
+        <meta property="og:title" content={helmetContent.title} />
+        <meta property="og:description" content={helmetContent.description} />
+        <meta property="og:url" content={`https://deenforcersworld.com/about${activeTab ? `?tab=${encodeURIComponent(activeTab)}` : ''}`} />
       </Helmet>
 
       {/* Header */}
@@ -70,12 +68,12 @@ const About: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">About Us</h1>
           <p className="text-xl md:text-2xl max-w-3xl mx-auto">
-            Learn about our church family, mission, and the people who make it all possible
+            Learn about our church family, mission, and the people who make it all possible.
           </p>
         </div>
       </section>
 
-      {/* Our Story */}
+       {/* Our Story */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -220,17 +218,16 @@ const About: React.FC = () => {
       <section className="my-8 px-4 bg-gradient-to-r from-indigo-600 via-gray-700" ref={tabSectionRef}>
         {/* Mobile Dropdown */}
         <div className="sm:hidden mb-4">
-          <label htmlFor="tabs" className="sr-only">Select a section</label>
           <select
             id="tabs"
-            value={activeTab}
+            value={activeTab || ''}
             onChange={(e) => handleTabChange(e.target.value)}
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500
-                      focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600
-                      dark:placeholder-gray-400 dark:text-white"
+            focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
           >
+            <option value="" disabled>Select a section</option>
             {Object.keys(tabMeta).map((tab) => (
-              <option key={tab}>{tab}</option>
+              <option key={tab} value={tab}>{tab}</option>
             ))}
           </select>
         </div>
@@ -241,11 +238,11 @@ const About: React.FC = () => {
             <li className="w-full" key={tab}>
               <button
                 onClick={() => handleTabChange(tab)}
-                className={`inline-block w-full p-4 transition-all duration-200 relative
-                  ${activeTab === tab
-                    ? "text-blue-600 bg-gray-100 dark:bg-gray-700 dark:text-white font-semibold after:absolute after:bottom-0 after:left-0 after:right-0 after:h-1 after:bg-blue-600"
-                    : "bg-white hover:text-gray-700 hover:bg-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white"
-                  }`}
+                className={`inline-block w-full p-4 transition-all duration-200 relative ${
+                  activeTab === tab
+                    ? 'text-blue-600 bg-gray-100 dark:bg-gray-700 dark:text-white font-semibold after:absolute after:bottom-0 after:left-0 after:right-0 after:h-1 after:bg-blue-600'
+                    : 'bg-white hover:text-gray-700 hover:bg-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white'
+                }`}
               >
                 {tab}
               </button>
@@ -255,8 +252,12 @@ const About: React.FC = () => {
 
         {/* Tab Content */}
         <div className="mt-6 p-4 bg-white dark:bg-gray-800 rounded shadow bg-gradient-to-r from-indigo-600 via-gray-700">
-          <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-white">{activeTab}</h3>
-          <p className="text-gray-600 dark:text-gray-300">{tabMeta[activeTab]?.description || 'Tab description not found.'}</p>
+          <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-white">
+            {activeTab || 'About'}
+          </h3>
+          <p className="text-gray-600 dark:text-gray-300">
+            {helmetContent.description}
+          </p>
         </div>
       </section>
     </div>

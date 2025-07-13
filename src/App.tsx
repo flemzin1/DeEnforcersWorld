@@ -17,8 +17,8 @@ import './App.css';
 
 const helmetData: Record<string, { title: string; description: string }> = {
   '/': {
-    title: 'De Enforcers World | Empowering Christains Through Gods\'s truth.',
-    description: 'Welcome to De Enforcers World — inspiring Christains and spiritual growth.',
+    title: 'De Enforcers World Church | Empowering Christains Through Gods\'s truth.',
+    description: 'Welcome to The Enforcers World Church — inspiring Christains and spiritual growth.',
   },
   '/about': {
     title: 'About Us | De Enforcers World',
