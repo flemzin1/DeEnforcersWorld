@@ -5,7 +5,8 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Homepage from './pages/Homepage';
 import About from './pages/About';
-import Messages from './pages/Messages';
+// import Messages from './pages/Messages';
+import Ministries from './pages/ministries';
 import Give from './pages/Give';
 import SatelliteCenters from './pages/SateliteCenters';
 import OurFounder from './pages/OurFounder';
@@ -40,17 +41,21 @@ const helmetData: Record<string, { title: string; description: string }> = {
     title: 'Outreach Programs | De Enforcers World',
     description: 'See how De Enforcers World impacts communities through outreach.',
   },
-  '/blogs': {
+  '/Enforcers Window': {
     title: 'Church Blog | De Enforcers World',
     description: 'Read reflections and teachings from our blog.',
   },
-  '/messages': {
-    title: 'Sermons & Messages | De Enforcers World',
-    description: 'Access powerful teachings and sermons.',
-  },
+  // '/messages': {
+  //   title: 'Sermons & Messages | De Enforcers World',
+  //   description: 'Access powerful teachings and sermons.',
+  // },
   '/give': {
     title: 'Give & Support | De Enforcers World',
     description: 'Support our mission and contribute to positive change.',
+  },
+  '/ministries': {
+    title: 'Minitries | De Enforcers World',
+    description: 'Discover the various ministries that empower lives at De Enforcers World.'
   },
   '/satellite-centers': {
     title: 'Satellite Centers | De Enforcers World',
@@ -91,8 +96,9 @@ const AppContent: React.FC = () => {
           <Route path="/organograms" element={<Organograms />} />
           <Route path="/events" element={<ChurchEvents />} />
           <Route path="/outreach" element={<OutreachPage />} />
-          <Route path="/blogs" element={<ChurchBlog />} />
-          <Route path="/messages" element={<Messages />} />
+          <Route path="/Enforcers Window" element={<ChurchBlog />} />
+          <Route path="/ministries" element={<Ministries />} />
+          {/* <Route path="/messages" element={<Messages />} /> */}
           <Route path="/give" element={<Give />} />
           <Route path="/satellite-centers" element={<SatelliteCenters />} />
         </Routes>

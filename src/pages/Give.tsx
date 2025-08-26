@@ -77,7 +77,7 @@ const Give: React.FC = () => {
         </div>
       </header>
 
-      {/* Blogs*/}
+      {/* Give*/}
       <section className="py-16 bg-white">
         <div className="max-w-2xl mx-auto px-4 py-8">
           <h2 className="text-3xl font-bold mb-6 text-center">Give</h2>

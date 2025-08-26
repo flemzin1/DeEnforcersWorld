@@ -3,13 +3,13 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { Helmet } from '@dr.pogodin/react-helmet';
 // const useQuery = () => new URLSearchParams(useLocation().search);
 
-import { User, Users, Heart, Award, BookOpen, Target } from 'lucide-react';
+import { User, Users, Award, BookOpen } from 'lucide-react';
 
 const tabMeta: Record<string, { title: string; description: string }> = {
-  Ministries: {
-    title: 'Ministries | About | De Enforcers World',
-    description: 'Discover the various ministries that empower lives at De Enforcers World.',
-  },
+  // Ministries: {
+  //   title: 'Ministries | About | De Enforcers World',
+  //   description: 'Discover the various ministries that empower lives at De Enforcers World.',
+  // },
   'Service Units': {
     title: 'Service Units | About | De Enforcers World',
     description: 'Explore our dedicated service units shaping our community work.',
@@ -73,16 +73,20 @@ const About: React.FC = () => {
         </div>
       </section>
 
-       {/* Our Story */}
+      {/* Our Story */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Story</h2>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+            <p className="text-xl text-gray-600  text-left">
+              The Truth Enforcers Bible church Int'l is a mission based church which is positioned to meet needs. <br /> Every Enforcer must understand this and begin serving God by identifying the various areas God is calling you to meet need. <br />The church is the hope of the world today. As the light of the world we must shine otherwise the entire world returns to full control of darkness, Except the Saints would rise to her place of duty, several cities in and around the world would be uninhabitable. <br />It is time for every child of God to rise to divine mandate and responsibility. God is waiting for the church to act on earth with prexisting backup from heaven.
+            </p>
+            {/* <p className="text-xl text-gray-600 max-w-4xl mx-auto">
               Founded in faith and built on love, Grace Community Church has been serving our community
               for over 25 years. We believe in the transformative power of God's love and are committed
               to sharing that message with everyone we meet.
-            </p>
+            </p> */}
+
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -90,16 +94,29 @@ const About: React.FC = () => {
               <p className="text-gray-500 text-lg">Church Image Placeholder</p>
             </div>
             <div>
-              <h3 className="text-2xl font-semibold text-gray-900 mb-4">Our Mission</h3>
-              <p className="text-gray-600 mb-6">
-                To glorify God by making disciples of Jesus Christ, building a community of faith,
-                hope, and love, and serving our neighbors with compassion and grace.
-              </p>
-              <h3 className="text-2xl font-semibold text-gray-900 mb-4">Our Vision</h3>
-              <p className="text-gray-600 mb-6">
-                Seeing the truth is embraced and enforced in our deliberately and willing.
-              </p>
-              <div className="space-y-4">
+              <div>
+                <h3 className="text-2xl font-semibold text-gray-900 mb-2">Our Vision</h3>
+                <p className="text-gray-600 mb-2">
+                  Truth Enforcers Bible Church is built upon the three fold in one vision, to raise congregation believers where we are committed to doing these three: <span className='font-semibold text-gray-900'>Learn</span>, <span className='font-semibold text-gray-900'>Love</span> and <span className='font-semibold text-gray-900'>live</span> the <span className='font-semibold text-gray-900'>Truth</span>, To achieve this we all have the picture to be a community of worshippers where the true love of God is preached and lived.
+                </p>
+                <h4 className="text-xl font-semibold text-gray-700 mb-2">Our Vision Statement</h4>
+                <p className="text-gray-600 mb-2">
+                  Save the lost at all cost, Helping believers reach their best potentials in life irrespective of who and where you are.
+                </p>
+                <h4 className="text-xl font-semibold text-gray-700 mb-2">Basic Elements of vision</h4>
+                <p className="text-gray-600 mb-4">Three fold in one vision is anchored these three G's in our mission</p>
+              </div>
+
+              <h3 className="text-2xl font-semibold text-gray-900 mb-2">Our Mission</h3>
+              <p className="text-gray-600 mb-2">As a church on the road, to be a mission based church which is committed to the ministry of our Lord Jesus Christ by doing these:</p>
+              <ol className='list-decimal list-inside'>
+                <li className="text-gray-600 mb-2"><span className='font-semibold text-gray-900'>GO</span> and preach the <span className='font-semibold text-gray-900'>TRUTH</span> to the world</li>
+                <li className="text-gray-600 mb-2"><span className='font-semibold text-gray-900'>GATHER</span> them that believed the <span className='font-semibold text-gray-900'>TRUTH</span> together and in this gathering, God meets all needs</li>
+                <li className="text-gray-600 mb-2"><span className='font-semibold text-gray-900'>GAZE</span> upon them until rapture</li>
+              </ol>
+              <h4 className="text-xl font-semibold text-gray-700 mb-1">Our Mission Statement</h4>
+              <p className="text-gray-600 mb-2">Called out to meet the needs of our world within our time.</p>
+              {/* <div className="space-y-4">
                 <div className="flex items-start">
                   <Target className="h-6 w-6 text-blue-600 mr-3 mt-1" />
                   <div>
@@ -121,7 +138,7 @@ const About: React.FC = () => {
                     <p className="text-gray-600">Serving others with Christ's love</p>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
 
           </div>
@@ -137,34 +154,34 @@ const About: React.FC = () => {
               Living and doer of the truth.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                 <BookOpen className="h-8 w-8 text-blue-600" />
               </div>
               <h3 className="text-xl font-semibold mb-2">Scripture</h3>
-              <p className="text-gray-600">God's Word as our foundation and guide</p>
+              <p className="text-gray-600">We believe, teach and practice Jesus Chris.</p>
             </div>
-            <div className="text-center">
+            {/* <div className="text-center">
               <div className="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                 <Heart className="h-8 w-8 text-green-600" />
               </div>
               <h3 className="text-xl font-semibold mb-2">Love</h3>
               <p className="text-gray-600">Showing Christ's love in all we do</p>
-            </div>
+            </div> */}
             <div className="text-center">
               <div className="bg-purple-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                 <Users className="h-8 w-8 text-purple-600" />
               </div>
               <h3 className="text-xl font-semibold mb-2">Unity</h3>
-              <p className="text-gray-600">Building authentic community together</p>
+              <p className="text-gray-600">We live and overcome by the truth.</p>
             </div>
             <div className="text-center">
               <div className="bg-yellow-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                 <Award className="h-8 w-8 text-yellow-600" />
               </div>
               <h3 className="text-xl font-semibold mb-2">Excellence</h3>
-              <p className="text-gray-600">Honoring God with our best efforts</p>
+              <p className="text-gray-600">With the God of truth,<br /> There is no impossibility before us.</p>
             </div>
           </div>
         </div>
@@ -238,11 +255,10 @@ const About: React.FC = () => {
             <li className="w-full" key={tab}>
               <button
                 onClick={() => handleTabChange(tab)}
-                className={`inline-block w-full p-4 transition-all duration-200 relative ${
-                  activeTab === tab
-                    ? 'text-blue-600 bg-gray-100 dark:bg-gray-700 dark:text-white font-semibold after:absolute after:bottom-0 after:left-0 after:right-0 after:h-1 after:bg-blue-600'
-                    : 'bg-white hover:text-gray-700 hover:bg-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white'
-                }`}
+                className={`inline-block w-full p-4 transition-all duration-200 relative ${activeTab === tab
+                  ? 'text-blue-600 bg-gray-100 dark:bg-gray-700 dark:text-white font-semibold after:absolute after:bottom-0 after:left-0 after:right-0 after:h-1 after:bg-blue-600'
+                  : 'bg-white hover:text-gray-700 hover:bg-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white'
+                  }`}
               >
                 {tab}
               </button>
@@ -262,6 +278,6 @@ const About: React.FC = () => {
       </section>
     </div>
   );
-};
+}; 
 
 export default About;

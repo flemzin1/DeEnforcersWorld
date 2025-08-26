@@ -203,7 +203,7 @@ const Navbar: React.FC = () => {
                   <li><a href="/about" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">About</a></li>
                   <li><a href="/founder" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Our Founder</a></li>
                   <li><a href="/organograms" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Organograms</a></li>
-                  <li><a href="/about?tab=Ministries" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Ministries</a></li>
+                  {/* <li><a href="/about?tab=Ministries" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Ministries</a></li> */}
                   <li><a href="/about?tab=Service Units" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Service Units</a></li>
                   <li><a href="/about?tab=Covenant Partners" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Covenant Partners</a></li>
                 </ul>
@@ -235,13 +235,13 @@ const Navbar: React.FC = () => {
                 <ul className="py-2 text-sm text-gray-700 dark:text-gray-400">
                   <li><a href="/events" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Our Events</a></li>
                   <li><a href="/outreach" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Outreach</a></li>
-                  <li><a href="/blogs" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Blogs</a></li>
+                  <li><a href="/Enforcers Window" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Enforcers Window</a></li>
                 </ul>
               </div>
             </li>
 
             <li>
-              <a href="/messages" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Messages</a>
+              <a href="/ministries" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Ministries</a>
             </li>
 
             <li>
