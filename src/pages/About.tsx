@@ -1,29 +1,39 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Helmet } from '@dr.pogodin/react-helmet';
-// const useQuery = () => new URLSearchParams(useLocation().search);
 
 import { User, Users, Award, BookOpen } from 'lucide-react';
 
-const tabMeta: Record<string, { title: string; description: string }> = {
-  // Ministries: {
-  //   title: 'Ministries | About | De Enforcers World',
-  //   description: 'Discover the various ministries that empower lives at De Enforcers World.',
-  // },
+// update the tabMeta to contain information of an array of lists
+const tabMeta: Record<string, { title: string; description: string; lists: Array<{ name: string; subdescription: string }> }> = {
   'Service Units': {
     title: 'Service Units | About | De Enforcers World',
-    description: 'Explore our dedicated service units shaping our community work.',
+    description: 'Explore our godly and dedicated service units shaping our believers to serve God within their reach,\nWe are called to serve the lord Lord with all we all or have. To serve is to live as a Christian.\nBelow are the various departments and service groups.',
+    lists: [
+      { name: 'Press and Media', subdescription: 'This unit is devoted to printing and publishing the monthly and regular publications of the church from print to social media platforms. They man our Television and Radio programmes.' },
+      { name: 'Sanitation and Decoration', subdescription: 'This department is invested with the responsibility to ensure that the church hall is kept and well decorated to suit every season and occasion.' },
+      { name: 'Ushers', subdescription: 'These are group of persons trained by the church to serve as greeters and waiters to maintain orderliness and organised setting for  goodly atmosphere.' },
+      { name: 'Protocol', subdescription: 'These are active and smart persons who are trained to  work as church security and secret police.' },
+      { name: 'Maternity', subdescription: 'These are mainly women who are called to serve any pregnant woman through their maternity period to when they are back to church services.' },
+      { name: 'Technical and Works', subdescription: 'The department for all technical and civil maintenance works around the church.' },
+      { name: 'Children Church', subdescription: 'The group of adult with specially identified  love and conern to care for children in the church.' },
+      { name: 'Welfare', subdescription: 'Dedicated believers who have the burden to help the less privileged within the church. This they do to encourage everyone to serve God without excuses, They devote their resources to support  and meet needs in the lives of identified brethren.' },
+      { name: 'Music', subdescription: 'Comprising of the band and choir, all committed to singing.' },
+    ],
   },
   'Covenant Partners': {
     title: 'Covenant Partners | About | De Enforcers World',
     description: 'Meet our Covenant Partners who support the mission of De Enforcers World.',
+    lists: [
+      { name: '', subdescription: '' },
+    ],
   },
 };
 
 const About: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState<string | null>(null);
+  const [activeTab, setActiveTab] = useState<string>('Service Units');
   const tabSectionRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
@@ -74,19 +84,13 @@ const About: React.FC = () => {
       </section>
 
       {/* Our Story */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white dark:bg-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Story</h2>
             <p className="text-xl text-gray-600  text-left">
               The Truth Enforcers Bible church Int'l is a mission based church which is positioned to meet needs. <br /> Every Enforcer must understand this and begin serving God by identifying the various areas God is calling you to meet need. <br />The church is the hope of the world today. As the light of the world we must shine otherwise the entire world returns to full control of darkness, Except the Saints would rise to her place of duty, several cities in and around the world would be uninhabitable. <br />It is time for every child of God to rise to divine mandate and responsibility. God is waiting for the church to act on earth with prexisting backup from heaven.
             </p>
-            {/* <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-              Founded in faith and built on love, Grace Community Church has been serving our community
-              for over 25 years. We believe in the transformative power of God's love and are committed
-              to sharing that message with everyone we meet.
-            </p> */}
-
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -116,37 +120,13 @@ const About: React.FC = () => {
               </ol>
               <h4 className="text-xl font-semibold text-gray-700 mb-1">Our Mission Statement</h4>
               <p className="text-gray-600 mb-2">Called out to meet the needs of our world within our time.</p>
-              {/* <div className="space-y-4">
-                <div className="flex items-start">
-                  <Target className="h-6 w-6 text-blue-600 mr-3 mt-1" />
-                  <div>
-                    <h4 className="font-semibold">Worship</h4>
-                    <p className="text-gray-600">Celebrating God's goodness together</p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <Users className="h-6 w-6 text-blue-600 mr-3 mt-1" />
-                  <div>
-                    <h4 className="font-semibold">Community</h4>
-                    <p className="text-gray-600">Building meaningful relationships</p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <Heart className="h-6 w-6 text-blue-600 mr-3 mt-1" />
-                  <div>
-                    <h4 className="font-semibold">Service</h4>
-                    <p className="text-gray-600">Serving others with Christ's love</p>
-                  </div>
-                </div>
-              </div> */}
             </div>
-
           </div>
         </div>
       </section>
 
       {/* Our Values */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-white dark:bg-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Core Values</h2>
@@ -162,13 +142,6 @@ const About: React.FC = () => {
               <h3 className="text-xl font-semibold mb-2">Scripture</h3>
               <p className="text-gray-600">We believe, teach and practice Jesus Chris.</p>
             </div>
-            {/* <div className="text-center">
-              <div className="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <Heart className="h-8 w-8 text-green-600" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Love</h3>
-              <p className="text-gray-600">Showing Christ's love in all we do</p>
-            </div> */}
             <div className="text-center">
               <div className="bg-purple-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                 <Users className="h-8 w-8 text-purple-600" />
@@ -188,7 +161,7 @@ const About: React.FC = () => {
       </section>
 
       {/* Leadership Team */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white dark:bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Leadership</h2>
@@ -267,13 +240,30 @@ const About: React.FC = () => {
         </ul>
 
         {/* Tab Content */}
-        <div className="mt-6 p-4 bg-white dark:bg-gray-800 rounded shadow bg-gradient-to-r from-indigo-600 via-gray-700">
+        {/* update the tab content to be scrollable */}
+        <div className="mt-6 p-4 bg-white dark:bg-gray-800 rounded shadow bg-gradient-to-r from-indigo-600 via-gray-700 overflow-auto max-h-60">
           <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-white">
-            {activeTab || 'About'}
+            {activeTab}
           </h3>
           <p className="text-gray-600 dark:text-gray-300">
-            {helmetContent.description}
+            {tabMeta[activeTab].description.includes('\n')
+              ? tabMeta[activeTab].description.split('\n').map((line, index) => (
+                  <span key={index}>
+                    {line}
+                    <br />
+                  </span>
+                ))
+              : tabMeta[activeTab].description}
           </p>
+          {tabMeta[activeTab].lists.length > 0 && (
+            <ul className="mt-4 list-disc list-inside text-gray-600 dark:text-gray-300">
+              {tabMeta[activeTab].lists.map((item, index) => (
+                <li key={index} className="mb-2">
+                  <span className="font-semibold text-gray-600 dark:text-white">{item.name}:</span> {item.subdescription}
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       </section>
     </div>

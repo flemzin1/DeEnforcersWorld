@@ -146,7 +146,7 @@ const Organogram: React.FC = () => {
       </header>
 
       {/* Senior Leadership */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white dark:bg-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
             Senior Leadership Team
@@ -239,7 +239,7 @@ const Organogram: React.FC = () => {
       </section>
 
       {/* Ministry Leaders */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white dark:bg-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
             Ministry Leaders

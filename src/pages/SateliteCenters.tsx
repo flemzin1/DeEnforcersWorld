@@ -83,7 +83,7 @@ const SatelliteCenters: React.FC = () => {
       </section>
 
       {/* Introduction */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white dark:bg-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">One Church, Multiple Locations</h2>
@@ -121,7 +121,7 @@ const SatelliteCenters: React.FC = () => {
       </section>
 
       {/* Satellite Centers List */}
-      <section className="py-16 bg-gray-500">
+      <section className="py-16 bg-white dark:bg-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-8">
             {centers.map((center) => (

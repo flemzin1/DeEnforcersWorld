@@ -75,7 +75,7 @@ const ChurchBlog: React.FC = () => {
             </header>
 
             {/* Blogs*/}
-            <section className="py-16 bg-white">
+            <section className="py-16 bg-white dark:bg-gray-200">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <div className="flex flex-col sm:flex-row gap-4 block justify-end mb-4 mx-10">
                         <button
@@ -89,7 +89,7 @@ const ChurchBlog: React.FC = () => {
                     </div>
                     <h1 className="text-3xl font-bold mb-6">Church Blog</h1>
 
-                    <section className="py-6 bg-white mb-6">
+                    <section className="py-6 mb-6">
                         <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row gap-4 items-center justify-between">
                             {/* Search */}
                             <div className="w-full max-w-md relative">

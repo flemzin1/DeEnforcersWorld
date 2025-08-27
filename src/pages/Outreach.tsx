@@ -72,7 +72,7 @@ const [modalOpen, setModalOpen] = useState(false);
       </header>
 
       {/*outreach */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white dark:bg-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="flex flex-col sm:flex-row gap-4 block justify-end mb-4 mx-10">
           <button

@@ -68,7 +68,7 @@ const Ministries: React.FC = () => {
             </section>
 
             {/* Ministries Grid */}
-            <section className="py-8 bg-gray-100">
+            <section className="py-8 bg-white dark:bg-gray-200">
                 <div className="flex flex-col sm:flex-row gap-4 block justify-end mb-4 mx-10">
                     <button
                         onClick={() => setModalOpen(true)}

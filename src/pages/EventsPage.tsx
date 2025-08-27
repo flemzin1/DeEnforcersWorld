@@ -49,6 +49,15 @@ const events: Event[] = [
     image: "https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg",
     location: "Main Auditorium",
   },
+  {
+    id: 4,
+    title: "Convention 2025",
+    description: "Annual convention for all members.",
+    time: "7pm",
+    date: "Aug 28, 2025",
+    image: "https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg",
+    location: "Main Auditorium",
+  },
 ];
 
 const today = new Date();
@@ -174,9 +183,9 @@ const ChurchEvents: React.FC = () => {
         </div>
       </header>
 
-      <section className="py-16 bg-white">
+      <section className="py-8 bg-white dark:bg-gray-200">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <div className="flex justify-end mb-6">
+          <div className="flex justify-end ">
             <button
               onClick={() => setModalOpen(true)}
               className="text-white bg-gradient-to-br from-blue-600 via-gray-900 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-50 font-medium rounded-lg text-sm px-5 py-2.5"
@@ -187,7 +196,7 @@ const ChurchEvents: React.FC = () => {
           <ContactModal show={modalOpen} onClose={() => setModalOpen(false)} />
 
           {/* Upcoming */}
-          <h2 className="text-4xl font-bold text-gray-800 dark:text-white mb-6">Upcoming Events</h2>
+          <h2 className="text-4xl font-bold text-white dark:text-gray-800 mb-6">Upcoming Events</h2>
           <div className="relative w-full">
             {/* Scrollable container */}
             <div
@@ -210,9 +219,8 @@ const ChurchEvents: React.FC = () => {
           </div>
 
 
-
           {/* Past */}
-          <h2 className="text-3xl font-bold text-gray-800 dark:text-white mt-10 mb-4">Past Events</h2>
+          <h2 className="text-3xl font-bold text-white dark:text-gray-800 mt-10 mb-4">Past Events</h2>
           <div className="relative w-full">
             {/* Scrollable container */}
             <div

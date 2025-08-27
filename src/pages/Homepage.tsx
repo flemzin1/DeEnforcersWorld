@@ -1,7 +1,11 @@
+import HomeCarousel from "../components/HomeCarousel";
 
 const Homepage = () => (
   <div>
-    <section className="bg-center bg-no-repeat bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg')] bg-gray-700 bg-blend-multiply">
+    <HomeCarousel />
+
+    {/* Jumbotron */}
+    {/* <section className="bg-center bg-no-repeat bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg')] bg-gray-700 bg-blend-multiply">
       <div className="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
         <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">
           Truth Enforcers Bible Church Intl
@@ -33,47 +37,48 @@ const Homepage = () => (
           </a>
         </div>
       </div>
-    </section>
+    </section> */}
 
     {/* Mission */}
-    <section className="bg-white py-8 px-4 mx-auto max-w-screen-xl lg:py-16">
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-        <div>
-          <h3 className="text-2xl font-semibold text-gray-900 mb-3">Our Mission Statement</h3>
-          <p className="mb-3 text-gray-700 dark:text-gray-700">Called out to meet the needs of our world within our time.</p>
-        </div>
-        <div>
-          <p className="text-2xl font-semibold text-gray-900">Our Vision Statement</p>
-          <p className="mb-3 text-gray-700 dark:text-gray-700">Save the lost at all cost, Helping believers reach their best potentials in life irrespective of who and where you are. </p>
-        </div>
-      </div>
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-        <div>
-          <h3 className="text-2xl font-semibold text-gray-900 mb-3">Our Core Value</h3>
-          <p className="mb-3 text-gray-700 dark:text-gray-700">We believe, teach and practice Jesus Chris. <br /> We live and overcome by the truth. <br /> With the God of truth, There is no impossibility before us.</p>
-        </div>
-        <div>
-          <p className="text-2xl font-semibold text-gray-900">Pillars of Faith</p>
-          <p className="mb-3 text-gray-700 dark:text-gray-700">This Commission is shaped by 12 Pillars of Faith <br /> Which are: </p>
-          <div >
-            <ol className="grid grid-cols-3 gap-6 sm:grid-cols-4 mb-3 text-gray-700 dark:text-gray-700 list-decimal list-inside">
-              <li>Called</li>
-              <li>Faith</li>
-              <li>Truth</li>
-              <li>Love</li>
-              <li>Sacrifice</li>
-              <li>Obedience</li>
-              <li>Grace</li>
-              <li>Holiness</li>
-              <li>Prayers</li>
-              <li>Power</li>
-              <li>Prosperity</li>
-              <li>Peace</li>
-            </ol>
+    <section className="bg-white dark:bg-gray-200 py-8 ">
+      <div className="px-4 mx-auto max-w-screen-xl lg:py-16">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          <div>
+            <h3 className="text-2xl font-semibold text-gray-900 mb-3">Our Mission Statement</h3>
+            <p className="mb-3 text-gray-700 dark:text-gray-700">Called out to meet the needs of our world within our time.</p>
+          </div>
+          <div>
+            <p className="text-2xl font-semibold text-gray-900">Our Vision Statement</p>
+            <p className="mb-3 text-gray-700 dark:text-gray-700">Save the lost at all cost, Helping believers reach their best potentials in life irrespective of who and where you are. </p>
           </div>
         </div>
-      </div>
-      {/* <div>
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          <div>
+            <h3 className="text-2xl font-semibold text-gray-900 mb-3">Our Core Value</h3>
+            <p className="mb-3 text-gray-700 dark:text-gray-700">We believe, teach and practice Jesus Chris. <br /> We live and overcome by the truth. <br /> With the God of truth, There is no impossibility before us.</p>
+          </div>
+          <div>
+            <p className="text-2xl font-semibold text-gray-900">Pillars of Faith</p>
+            <p className="mb-3 text-gray-700 dark:text-gray-700">This Commission is shaped by 12 Pillars of Faith <br /> Which are: </p>
+            <div >
+              <ol className="grid grid-cols-3 gap-6 sm:grid-cols-4 mb-3 text-gray-700 dark:text-gray-700 list-decimal list-inside">
+                <li>Call</li>
+                <li>Faith</li>
+                <li>Truth</li>
+                <li>Love</li>
+                <li>Sacrifice</li>
+                <li>Obedience</li>
+                <li>Grace</li>
+                <li>Holiness</li>
+                <li>Prayers</li>
+                <li>Power</li>
+                <li>Prosperity</li>
+                <li>Peace</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+        {/* <div>
         <p className="text-2xl font-semibold text-gray-900"></p>
         <p className="mb-3 text-gray-700 dark:text-gray-700"> <area shape="circle" coords="" href="" alt="" /><ul className="list-disc list-inside">
 
@@ -81,11 +86,12 @@ const Homepage = () => (
       </div>
       <p className="text-2xl font-semibold text-gray-900"></p>
       <p className="mb-3 text-gray-500 dark:text-gray-400"></p> */}
+      </div>
     </section>
 
 
     {/* About */}
-    <section className="bg-white ">
+    <section className="bg-white dark:bg-gray-100 ">
       <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16">
         <div className="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-8 md:p-12 mb-8 bg-gradient-to-r from-indigo-600 via-gray-700">
           <h1 className="text-gray-900 dark:text-white text-3xl md:text-5xl font-extrabold mb-2">Welcome</h1>

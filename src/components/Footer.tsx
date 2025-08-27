@@ -1,19 +1,27 @@
 
 const currentYear: number = new Date().getFullYear();
+  const churchName = "De Enforcers World";
+  const logoUrl = "";
 
 const Footer = () => (
   <footer className="bg-white dark:bg-gray-900">
     <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
       <div className="md:flex md:justify-between">
         <div className="mb-6 md:mb-0">
-          <a href="/" className="flex items-center">
-            <img src="" className="h-8 me-3 text-white" alt="Truth Logo" />
-            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">De Enforcers World</span>
-          </a> 
-        </div>
-        <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
-          <div>
-            <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Our Social Medias</h2>
+          <a href="/" className="flex items-center space-x-1 rtl:space-x-reverse">
+          {logoUrl ? (
+            <>
+            <img src={logoUrl} className="h-8 me-3 text-white" alt={churchName} />
+            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">{churchName}</span>
+            </>
+          ) : (
+            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">{churchName}</span>
+          )}
+        </a>
+      </div>
+      <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+        <div>
+          <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Our Social Medias</h2>
             <ul className="text-gray-500 dark:text-gray-400 font-medium">
               <li className="mb-4">
                 <a href="tel:+2349035262719" className="hover:underline flex items-center ">
