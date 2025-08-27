@@ -26,18 +26,18 @@ const HomeCarousel: React.FC = () => {
     {
       id: 2,
       backgroundImage: "/img/img2.jpg",
-      title: "Growing in Faith Together",
-      subtitle: "Community of Believers",
+      title: "De Enforcers World",
+      subtitle: "Messengers Of Truth",
       description: "Join our community of faith.",
-      subdescription: "Where truth meets fellowship and love."
+      subdescription: "Where truth meets fellowship and  true love of God is lived."
     },
     {
       id: 3,
       backgroundImage: "/img/Img3.jpg",
-      title: "Worship & Prayer",
-      subtitle: "Spiritual Growth",
+      title: "De Enforcers World",
+      subtitle: "Messengers Of Truth",
       description: "Experience the power of worship.",
-      subdescription: "Connect with God through prayer and praise."
+      subdescription: "With the God of truth, There is no impossibility before us."
     }
   ];
 

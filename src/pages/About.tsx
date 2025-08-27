@@ -240,7 +240,6 @@ const About: React.FC = () => {
         </ul>
 
         {/* Tab Content */}
-        {/* update the tab content to be scrollable */}
         <div className="mt-6 p-4 bg-white dark:bg-gray-800 rounded shadow bg-gradient-to-r from-indigo-600 via-gray-700 overflow-auto max-h-60">
           <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-white">
             {activeTab}
