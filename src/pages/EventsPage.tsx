@@ -1,75 +1,232 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from "react";
 import { MapPinIcon, ClockIcon } from "@heroicons/react/24/solid";
-import ContactModal from '../components/ContactModal';
+import ContactModal from "../components/ContactModal";
+import { Card, Modal, Button } from "flowbite-react";
 
 interface Event {
   id: number;
   title: string;
+  theme: string;
   description: string;
+  eventsType: "Annual" | "Weekly" | "Monthly";
   time: string;
-  date: string;
+  startDate: string;
+  enddate: string;
   image: string;
   location: string;
 }
 
-const events: Event[] = [
+
+const eventsByDate: Event[] = [
   {
     id: 1,
-    title: "Youth Conference 2025",
-    description: "An evening of music, prayer, and fellowship led by our youth group.",
-    time: "10am",
-    date: "May 10, 2025",
-    image: "https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg",
-    location: "Main Auditorium",
+    title: "Doubled Grace Atmosphere",
+    theme: "7 Covenant Keys",
+    description: "2025 Annual International Missionary Convention",
+    eventsType: "Annual",
+    time: "4:30pm",
+    startDate: "Aug 28 2025",
+    enddate: "Aug 31, 2025",
+    image: "/img/annual-aug2025.jpg",
+    location: "Land of Springs/nI-Point Junction Choba Extension By 1st Mechanic Bus-Stop Off UPTH East-West Road PH",
   },
   {
     id: 2,
-    title: "Praise Night",
-    description: "Join us for a night of praise and worship.",
+    title: "Free Medical Service",
+    theme: "Medical Service",
+    description: "Come and Get Free Medical Service Which is in partnership with our 2025 Annual International Missionary Convention",
+    eventsType: "Annual",
     time: "4pm",
-    date: "May 20, 2025",
+    startDate: "Aug 28 2025",
+    enddate: "Aug 31, 2025",
     image: "https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg",
-    location: "City Center, PH",
+    location: "Land of Springs/nI-Point Junction Choba Extension By 1st Mechanic Bus-Stop Off UPTH East-West Road PH",
+  },
+];
+
+const eventsByType: Event[] = [
+  {
+    id: 1,
+    title: "Annual TakeOver Feast",
+    theme: "",
+    description: "Annual TakeOver Feast for all members.",
+    eventsType: "Annual",
+    time: "January",
+    startDate: "",
+    enddate: "",
+    image: "/img/annual-aug2025.jpg",
+    location: "",
   },
   {
-    id: 3,
+    id: 2,
+    title: "Marriage And Family Ministrations",
+    theme: "",
+    description: "Marriage And Family Ministrations.",
+    eventsType: "Annual",
+    time: "February",
+    startDate: "",
+    enddate: "",
+    image: "https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg",
+    location: "",
+  },
+  {
+    id: 4,
+    title: "Easter Week And Cultural Ministration",
+    theme: "",
+    description: "Easter Week.",
+    eventsType: "Annual",
+    time: "April",
+    startDate: "",
+    enddate: "",
+    image: "https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg",
+    location: "",
+  },
+  {
+    id: 5,
+    title: "Children's Day Celebration/Widows Ministry",
+    theme: "",
+    description: "Children's Day Celebration/Widows Ministry.",
+    eventsType: "Annual",
+    time: "May",
+    startDate: "",
+    enddate: "",
+    image: "https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg",
+    location: "",
+  },
+  {
+    id: 6,
+    title: "God's Heartbeat with free Medical facility",
+    theme: "",
+    description: "God's Heartbeat with free Medical facility.",
+    eventsType: "Annual",
+    time: "June",
+    startDate: "",
+    enddate: "",
+    image: "https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg",
+    location: "",
+  },
+  {
+    id: 7,
+    title: "Youth Anniversary with Empowerment",
+    theme: "",
+    description: "Youth Anniversary with Empowerment.",
+    eventsType: "Annual",
+    time: "July",
+    startDate: "",
+    enddate: "",
+    image: "https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg",
+    location: "",
+  },
+  {
+    id: 8,
+    title: "Covenant Fast and Missionary Convention",
+    theme: "",
+    description: "Covenant Fast and Missionary Convention.",
+    eventsType: "Annual",
+    time: "August",
+    startDate: "",
+    enddate: "",
+    image: "https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg",
+    location: "",
+  },
+  {
+    id: 9,
+    title: "Men Anniversary with Business Summit",
+    theme: "",
+    description: "A summit focused on empowering men in business.",
+    eventsType: "Annual",
+    time: "September",
+    startDate: "",
+    enddate: "",
+    image: "https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg",
+    location: "",
+  },
+  {
+    id: 10,
+    title: "Women Anniversary",
+    theme: "",
+    description: "A conference aimed at empowering women in various fields.",
+    eventsType: "Annual",
+    time: "October",
+    startDate: "",
+    enddate: "",
+    image: "https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg",
+    location: "",
+  },
+  {
+    id: 11,
+    title: "Annual Harvest & Thanksgiving service",
+    theme: "",
+    description: "A celebration of gratitude and abundance.",
+    eventsType: "Annual",
+    time: "November",
+    startDate: "",
+    enddate: "",
+    image: "https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg",
+    location: "",
+  },
+  {
+    id: 12,
+    title: "Celebration Grace",
+    theme: "",
+    description: "A time to celebrate grace and blessings.",
+    eventsType: "Annual",
+    time: "December",
+    startDate: "",
+    enddate: "",
+    image: "https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg",
+    location: "",
+  },
+  {
+    id: 20,
     title: "Outreach Program",
+    theme: "",
     description: "Providing aid to the local community.",
+    eventsType: "Monthly",
     time: "7pm",
-    date: "Jun 10, 2025",
+    startDate: "May 10, 2025",
+    enddate: "May 13, 2025",
     image: "https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg",
     location: "Faith Hall",
   },
   {
-    id: 4,
-    title: "Students Outreach Program",
-    description: "Providing aid to the Students community.",
-    time: "7pm",
-    date: "Jun 15, 2025",
+    id: 26,
+    title: "Counseling Services",
+    theme: "",
+    description: "Providing aid to the church community.",
+    eventsType: "Weekly",
+    time: "Tuesdays",
+    startDate: "",
+    enddate: "",
     image: "https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg",
-    location: "Main Auditorium",
+    location: "",
   },
   {
-    id: 4,
-    title: "Convention 2025",
-    description: "Annual convention for all members.",
-    time: "7pm",
-    date: "Aug 28, 2025",
+    id: 27,
+    title: "Midweek Service and Discipleship Training",
+    theme: "",
+    description: "A weekly gathering for prayer and intercession.",
+    eventsType: "Weekly",
+    time: "Wednesdays",
+    startDate: "",
+    enddate: "",
     image: "https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg",
-    location: "Main Auditorium",
-  },
+    location: "",
+  }
 ];
 
-const today = new Date();
-const upcomingEvents = events.filter((e) => new Date(e.date) >= today);
-const pastEvents = events.filter((e) => new Date(e.date) < today);
 
-function useScrollState(ref: React.RefObject<HTMLDivElement | null>) {
-  const [state, setState] = useState({ scrollable: false, canScrollLeft: false, canScrollRight: false });
+function useScrollState(ref: React.RefObject<HTMLDivElement>) {
+  const [state, setState] = useState({
+    scrollable: false,
+    canScrollLeft: false,
+    canScrollRight: false,
+  });
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+
     const checkScroll = () => {
       if (!el) return;
       setState({
@@ -79,9 +236,7 @@ function useScrollState(ref: React.RefObject<HTMLDivElement | null>) {
       });
     };
 
-    const delayedCheck = () => setTimeout(checkScroll, 50);
-    delayedCheck();
-
+    checkScroll();
     el.addEventListener("scroll", checkScroll);
     window.addEventListener("resize", checkScroll);
 
@@ -94,35 +249,175 @@ function useScrollState(ref: React.RefObject<HTMLDivElement | null>) {
   return state;
 }
 
-const EventCard: React.FC<{ event: Event }> = ({ event }) => (
-  <div className="min-w-[320px] max-w-xs snap-start rounded-2xl shadow-lg overflow-hidden">
-    <div
-      className="h-48 bg-cover bg-center"
-      style={{ backgroundImage: `url(${event.image})` }}
-    />
-    <div className="bg-white p-4 flex flex-col gap-2">
-      <h3 className="text-xl font-semibold text-gray-900 ">{event.title}</h3>
-      <p className="text-gray-700 text-sm">{event.description}</p>
-      <div className="flex items-center text-sm text-gray-600 mt-1">
-        <ClockIcon className="h-5 w-5 mr-1 text-blue-500" />
-        {event.time} — {new Date(event.date).toLocaleDateString('en-us', { year: "numeric", month: "long", day: "numeric" })}
-      </div>
-      <div className="flex items-center text-sm text-gray-600 ">
-        <MapPinIcon className="h-5 w-5 mr-1 text-red-500" />
-        {event.location}
-      </div>
+const EventCard: React.FC<{ event: Event; fromType?: boolean }> = ({ event, fromType }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
+  return (
+    <div className="min-w-[320px] max-w-xs snap-start">
+      {fromType ? (
+        //  Card by Type (annual, monthly, weekly)
+        <Card
+          className="flex flex-col h-[400px] bg-dark dark:bg-white rounded-2xl shadow-lg overflow-hidden"
+          renderImage={() => (
+            <div className="w-full aspect-[3/2] flex items-center justify-center bg-white">
+              <img
+                src={event.image}
+                alt={event.title}
+                className="max-h-full max-w-full object-contain"
+              />
+            </div>
+          )}
+        >
+          {/* Title zone with fixed height */}
+          <div className=" flex flex-col flex">
+            <h3 className="text-lg font-semibold text-gray-900 line-clamp-2 ">
+              {event.title}
+            </h3>
+          </div>
+          <Button
+            onClick={() => {
+              setSelectedEvent(event);
+              setIsModalOpen(true);
+            }}
+            className="mt-3 text-white bg-gradient-to-br from-blue-600 via-gray-800 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-50 font-medium rounded-lg text-sm px-5 py-2.5"
+          >
+            More
+          </Button>
+        </Card>
+      ) : (
+        // Card by Date (upcoming, ongoing, past)
+        <Card className="flex flex-col h-[420px] bg-dark dark:bg-white rounded-2xl shadow-lg overflow-hidden"
+          renderImage={() => (
+            <div className="w-full aspect-[3/2] flex items-center justify-center bg-gray-100">
+              <img
+                src={event.image}
+                alt={event.title}
+                className="max-h-full max-w-full object-contain"
+              />
+            </div>
+          )}
+        >
+          <div className="flex flex-col flex-1 px-2 py-2">
+            <div className="min-h-[72px] max-h-[72px]">
+              <h3 className="text-lg font-semibold text-gray-900 line-clamp-1">
+                {event.theme}
+              </h3>
+              <p className="text-gray-700 text-sm line-clamp-2">
+                {event.title}
+              </p>
+            </div>
+            <div className="mt-auto space-y-1 min-h-[48px] max-h-[48px]">
+              <div className="flex items-center text-sm text-gray-600">
+                <ClockIcon className="h-5 w-5 mr-1 text-blue-500" />
+
+                <span>
+                  {event.time} ·{" "}
+                  {new Date(event.startDate).toLocaleDateString("en-us", {
+                    month: "short",
+                    day: "numeric",
+                  })}
+
+                  {new Date(event.startDate).getMonth() === new Date(event.enddate).getMonth() &&
+                    new Date(event.startDate).getFullYear() === new Date(event.enddate).getFullYear() ? (
+                    <>
+                      {" - "}
+                      {new Date(event.enddate).getDate()},{" "}
+                      {new Date(event.enddate).getFullYear()}
+                    </>
+                  ) : (
+                    <>
+                      {" - "}
+                      {new Date(event.enddate).toLocaleDateString("en-us", {
+                        month: "short",
+                        day: "numeric",
+                        year: "numeric",
+                      })}
+                    </>
+                  )}
+                </span>
+              </div>
+              <Button
+                onClick={() => {
+                  setSelectedEvent(event);
+                  setIsModalOpen(true);
+                }}
+                className="mt-3 text-white bg-gradient-to-br from-blue-600 via-gray-800 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-50 font-medium rounded-lg text-sm px-5 py-2.5"
+              >
+                Read More
+              </Button>
+            </div>
+          </div>
+        </Card>
+      )}
+
+      {/* Modal for detailed view */}
+      {selectedEvent && (
+        <Modal show={isModalOpen} onClose={() => setIsModalOpen(false)}>
+          <div className="p-6 bg-gray-800 dark:bg-white">
+            <h3 className="text-lg font-bold mb-2">{selectedEvent.theme}</h3>
+            <img src={selectedEvent.image} alt={selectedEvent.title} className="rounded mb-4" />
+            <h4 className="text-lg font-semibold mb-2">{selectedEvent.title}</h4>
+            <p className="text-gray-700 mb-4">{selectedEvent.description}</p>
+            {/* for type */}
+            {fromType ? (
+              <div className="flex items-center text-sm text-gray-600">
+                <ClockIcon className="h-5 w-5 mr-1 text-blue-500" />
+
+                <span>Every Month at {event.time}</span>
+              </div>
+            ) : (
+              <><div className="flex items-center text-sm text-gray-600">
+                <ClockIcon className="h-5 w-5 mr-1 text-blue-500" />
+
+                <span>
+                  {event.time} ·{" "}
+                  {new Date(event.startDate).toLocaleDateString("en-us", {
+                    month: "short",
+                    day: "numeric",
+                  })}
+
+                  {new Date(event.startDate).getMonth() === new Date(event.enddate).getMonth() &&
+                    new Date(event.startDate).getFullYear() === new Date(event.enddate).getFullYear() ? (
+                    <>
+                      {" - "}
+                      {new Date(event.enddate).getDate()},{" "}
+                      {new Date(event.enddate).getFullYear()}
+                    </>
+                  ) : (
+                    <>
+                      {" - "}
+                      {new Date(event.enddate).toLocaleDateString("en-us", {
+                        month: "short",
+                        day: "numeric",
+                        year: "numeric",
+                      })}
+                    </>
+                  )}
+                </span>
+              </div><div className="flex items-center text-sm text-gray-600">
+                  <MapPinIcon className="h-5 w-5 mr-1 text-red-500" />
+                  <span className="">{event.location}</span>
+
+                </div></>
+            )}
+            <div className="mt-4 text-right">
+              <Button className='text-white bg-gradient-to-br from-blue-600 via-gray-800 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-50 dark:focus:ring-blue-50 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2' onClick={() => setIsModalOpen(false)}>Close</Button>
+            </div>
+          </div>
+        </Modal>
+      )}
     </div>
-  </div>
-);
+  );
+};
 
 const ScrollControls: React.FC<{
-  refEl: React.RefObject<HTMLDivElement | null>;
+  refEl: React.RefObject<HTMLDivElement>;
   canScrollLeft: boolean;
   canScrollRight: boolean;
 }> = ({ refEl, canScrollLeft, canScrollRight }) => {
   const scrollBy = (amount: number) => {
     if (refEl.current) {
-      refEl.current.scrollBy({ left: amount, behavior: 'smooth' });
+      refEl.current.scrollBy({ left: amount, behavior: "smooth" });
     }
   };
 
@@ -131,32 +426,17 @@ const ScrollControls: React.FC<{
       {canScrollLeft && (
         <button
           onClick={() => scrollBy(-300)}
-          className="absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-full p-3 shadow-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+          className="absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-full p-3 shadow-lg"
         >
-          <svg
-            className="w-6 h-6 text-gray-600 dark:text-gray-300"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
-          </svg>
+          {"<"}
         </button>
       )}
-
       {canScrollRight && (
         <button
           onClick={() => scrollBy(300)}
-          className="absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-full p-3 shadow-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+          className="absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-full p-3 shadow-lg"
         >
-          <svg
-            className="w-6 h-6 text-gray-600 dark:text-gray-300"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-          </svg>
+          {">"}
         </button>
       )}
     </>
@@ -166,11 +446,45 @@ const ScrollControls: React.FC<{
 
 const ChurchEvents: React.FC = () => {
   const [modalOpen, setModalOpen] = useState(false);
-  const upcomingRef = useRef<HTMLDivElement | null>(null);
-  const pastRef = useRef<HTMLDivElement | null>(null);
 
+  /* Date-based tabs */
+  const dateTabs = ["Upcoming", "Ongoing", "Past"] as const;
+  const [activeDateTab, setActiveDateTab] = useState<typeof dateTabs[number]>("Upcoming");
+  const today = new Date();
+
+  const filterByDate = (tab: typeof dateTabs[number]) => {
+    if (tab === "Upcoming") return eventsByDate.filter((e) => new Date(e.startDate) > today);
+    if (tab === "Ongoing") {
+      return eventsByDate.filter((e) => {
+        const start = new Date(e.startDate);
+        const end = new Date(e.enddate);
+
+        // Normalize all to midnight
+        const startDay = new Date(start.getFullYear(), start.getMonth(), start.getDate());
+        const endDay = new Date(end.getFullYear(), end.getMonth(), end.getDate());
+        const todayDay = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+
+        return todayDay >= startDay && todayDay <= endDay;
+      });
+    }
+
+    if (tab === "Past") return eventsByDate.filter((e) => {
+      const end = new Date(e.enddate);
+      const endDay = new Date(end.getFullYear(), end.getMonth(), end.getDate());
+      const todayDay = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+      return endDay < todayDay;
+    });
+    return [];
+  };
+
+  const upcomingRef = useRef<HTMLDivElement>(null!);
   const upcomingState = useScrollState(upcomingRef);
-  const pastState = useScrollState(pastRef);
+
+  /* Type-based tabs */
+  const typeTabs = ["Annual", "Monthly", "Weekly"] as const;
+  const [activeTypeTab, setActiveTypeTab] = useState<typeof typeTabs[number]>("Annual");
+  const typeRef = useRef<HTMLDivElement>(null!);
+  const typeState = useScrollState(typeRef);
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 bg-gradient-to-r from-indigo-600 via-gray-700">
@@ -178,37 +492,56 @@ const ChurchEvents: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Scheduled Events</h1>
           <p className="text-xl md:text-2xl max-w-3xl mx-auto">
-            Review our Upcoming and Past Events including Services, Outreach and Concerts
+            Review our Upcoming, Ongoing, Past and All Types of Events
           </p>
         </div>
       </header>
 
       <section className="py-8 bg-white dark:bg-gray-200">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <div className="flex justify-end ">
+          {/* Subscribe */}
+          <div className="flex justify-end">
             <button
               onClick={() => setModalOpen(true)}
-              className="text-white bg-gradient-to-br from-blue-600 via-gray-900 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-50 font-medium rounded-lg text-sm px-5 py-2.5"
+              className="text-white bg-gradient-to-br from-blue-600 via-gray-900 font-medium rounded-lg text-sm px-5 py-2.5"
             >
               Subscribe
             </button>
           </div>
           <ContactModal show={modalOpen} onClose={() => setModalOpen(false)} />
 
-          {/* Upcoming */}
-          <h2 className="text-4xl font-bold text-white dark:text-gray-800 mb-6">Upcoming Events</h2>
-          <div className="relative w-full">
-            {/* Scrollable container */}
+          {/* Date-based */}
+          <h2 className="text-4xl font-bold text-white dark:text-gray-800 mb-6">
+            Events by Date
+          </h2>
+          <ul className="flex justify-center gap-4 mb-6">
+            {dateTabs.map((tab) => (
+              <li key={tab}>
+                <button
+                  onClick={() => setActiveDateTab(tab)}
+                  className={`px-4 py-2 rounded-lg ${activeDateTab === tab
+                    ? "bg-blue-600 text-white"
+                    : "bg-gray-100 dark:bg-gray-800"
+                    }`}
+                >
+                  {tab}
+                </button>
+              </li>
+            ))}
+          </ul>
+          <div className="relative w-full mb-10">
             <div
               ref={upcomingRef}
-              className="flex snap-x snap-mandatory scroll-smooth space-x-6 overflow-x-auto pb-4 pr-6 scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-700"
+              className="flex snap-x snap-mandatory scroll-smooth space-x-6 overflow-x-auto pb-4"
             >
-              {upcomingEvents.map((event) => (
-                <EventCard key={event.id} event={event} />
-              ))}
+              {filterByDate(activeDateTab).length ? (
+                filterByDate(activeDateTab).map((event) => (
+                  <EventCard key={event.id} event={event} />
+                ))
+              ) : (
+                <p className="text-gray-900 dark:text-white-900">No {activeDateTab} events.</p>
+              )}
             </div>
-
-            {/* Floating scroll controls */}
             {upcomingState.scrollable && (
               <ScrollControls
                 refEl={upcomingRef}
@@ -218,26 +551,41 @@ const ChurchEvents: React.FC = () => {
             )}
           </div>
 
-
-          {/* Past */}
-          <h2 className="text-3xl font-bold text-white dark:text-gray-800 mt-10 mb-4">Past Events</h2>
+          {/* Type-based */}
+          <h2 className="text-4xl font-bold text-white dark:text-gray-800 mb-6">
+            Events by Type
+          </h2>
+          <ul className="flex justify-center gap-4 mb-6">
+            {typeTabs.map((tab) => (
+              <li key={tab}>
+                <button
+                  onClick={() => setActiveTypeTab(tab)}
+                  className={`px-4 py-2 rounded-lg ${activeTypeTab === tab
+                    ? "bg-blue-600 text-white"
+                    : "bg-gray-100 dark:bg-gray-800"
+                    }`}
+                >
+                  {tab}
+                </button>
+              </li>
+            ))}
+          </ul>
           <div className="relative w-full">
-            {/* Scrollable container */}
             <div
-              ref={pastRef}
-              className="flex snap-x snap-mandatory scroll-smooth space-x-6 overflow-x-auto pb-4 pr-6 scrollbar-thin scrollbar-thumb-gray-200 dark:scrollbar-thumb-gray-700"
+              ref={typeRef}
+              className="flex snap-x snap-mandatory scroll-smooth space-x-6 overflow-x-auto pb-4"
             >
-              {pastEvents.map((event) => (
-                <EventCard key={event.id} event={event} />
-              ))}
+              {eventsByType
+                .filter((e) => e.eventsType === activeTypeTab)
+                .map((event) => (
+                  <EventCard key={event.id} event={event} fromType />
+                ))}
             </div>
-
-            {/* Floating scroll buttons */}
-            {pastState.scrollable && (
+            {typeState.scrollable && (
               <ScrollControls
-                refEl={pastRef}
-                canScrollLeft={pastState.canScrollLeft}
-                canScrollRight={pastState.canScrollRight}
+                refEl={typeRef}
+                canScrollLeft={typeState.canScrollLeft}
+                canScrollRight={typeState.canScrollRight}
               />
             )}
           </div>

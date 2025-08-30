@@ -3,9 +3,11 @@ import React, { useState, useEffect } from 'react';
 const HomeCarousel: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-  const isLive = false; // Change to true if live streaming is active
-  const liveStreamUrl = ""; 
-  
+  const isLive = true; // Change to true if live streaming is active
+  const liveStreamUrl = "";
+  const logoUrl1 = "/img/enforcer1.png";
+  const logoUrl2 = "/img/enforcer2.png";
+
   const slides = [
     {
       id: 0,
@@ -26,7 +28,7 @@ const HomeCarousel: React.FC = () => {
     {
       id: 2,
       backgroundImage: "/img/img2.jpg",
-      title: "De Enforcers World",
+      title: "Truth Enforcers Bible Church Intl",
       subtitle: "Messengers Of Truth",
       description: "Join our community of faith.",
       subdescription: "Where truth meets fellowship and  true love of God is lived."
@@ -34,7 +36,7 @@ const HomeCarousel: React.FC = () => {
     {
       id: 3,
       backgroundImage: "/img/Img3.jpg",
-      title: "De Enforcers World",
+      title: "Truth Enforcers Bible Church Intl",
       subtitle: "Messengers Of Truth",
       description: "Experience the power of worship.",
       subdescription: "With the God of truth, There is no impossibility before us."
@@ -44,7 +46,7 @@ const HomeCarousel: React.FC = () => {
   // Auto-advance slides every 5 seconds
   useEffect(() => {
     if (isPaused) return;
-    
+
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 5000);
@@ -85,7 +87,7 @@ const HomeCarousel: React.FC = () => {
   };
 
   return (
-    <div 
+    <div
       className="relative h-screen overflow-hidden bg-gray-50 dark:bg-gray-800"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -96,19 +98,18 @@ const HomeCarousel: React.FC = () => {
       {slides.map((slide, index) => (
         <div
           key={slide.id}
-          className={`absolute inset-0 transition-transform duration-700 ease-in-out ${
-            index === currentSlide ? 'translate-x-0' : 
-            index < currentSlide ? '-translate-x-full' : 'translate-x-full'
-          }`}
+          className={`absolute inset-0 transition-transform duration-700 ease-in-out ${index === currentSlide ? 'translate-x-0' :
+              index < currentSlide ? '-translate-x-full' : 'translate-x-full'
+            }`}
         >
-          <section 
+          <section
             className="bg-center bg-no-repeat bg-cover bg-gray-700 bg-blend-multiply flex items-center relative h-screen w-full"
             style={slide.backgroundImage ? { backgroundImage: `url('${slide.backgroundImage}')` } : undefined}
           >
             {slide.backgroundVideo && (
               <video
                 className="absolute inset-0 w-full h-full object-cover z-0 opacity-40"
-                src={slide.backgroundVideo} 
+                src={slide.backgroundVideo}
                 autoPlay
                 loop
                 muted
@@ -116,9 +117,22 @@ const HomeCarousel: React.FC = () => {
               />
             )}
             <div className="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56 relative z-10">
-              <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">
-                {slide.title}
-              </h1>
+              <div className="flex items-center space-x-1">
+                <img
+                  src={logoUrl1}
+                  className="h-12 w-auto rounded-2xl"
+                  alt={slide.title}
+                />
+                <h1 className="text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">
+                  {slide.title}
+                </h1>
+                <img
+                  src={logoUrl2}
+                  className="h-12 w-auto rounded-2xl"
+                  alt={slide.title}
+                />
+              </div>
+
               <p className="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">
                 AKA: <span className="text-base">{slide.subtitle}</span>
               </p>
@@ -139,7 +153,7 @@ const HomeCarousel: React.FC = () => {
                   href={isLive ? liveStreamUrl : "/Enforcers Window"}
                   className={isLive ? "inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-gradient-to-br from-blue-600 via-orange-500 hover:bg-gradient-to-bl focus:ring-4 focus:ring-transparent-900 dark:focus:ring-orange-500 font-medium rounded-lg text-sm text-center me-2 mb-2 transition-all duration-300" : "inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-gradient-to-br from-blue-600 via-white-500 hover:bg-gradient-to-bl focus:ring-2 focus:outline-none focus:ring-white dark:focus:ring-white font-medium rounded-lg text-sm text-center me-2 mb-2 transition-all duration-300"}
                 >
-                  {isLive ? "Watch Live" : "Enforcers Window"}
+                  {isLive ? "Watch Us Live" : "Enforcers Window"}
                   <svg className="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                     <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
                   </svg>
@@ -160,7 +174,7 @@ const HomeCarousel: React.FC = () => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
         </svg>
       </button>
-      
+
       <button
         onClick={nextSlide}
         className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-75 text-white p-2 rounded-full transition-all duration-300 z-10"
@@ -177,11 +191,10 @@ const HomeCarousel: React.FC = () => {
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              index === currentSlide 
-                ? 'bg-white scale-110' 
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentSlide
+                ? 'bg-white scale-110'
                 : 'bg-white bg-opacity-50 hover:bg-opacity-75'
-            }`}
+              }`}
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}

@@ -5,46 +5,34 @@ import {
   Users,
   Heart,
   BookOpen,
+  Church,
 } from 'lucide-react';
 
 interface Position {
   title: string;
   name: string;
   level: number;
-  department?: string; 
+  department?: string;
+  imageUrl?: string;
+}
+interface Elders {
+  title: string;
+  name: string;
   imageUrl?: string;
 }
 
 const leadership: Position[] = [
   {
-    title: 'Senior Pastor/Founder',
-    name: 'Dr. Zerubabbel',
+    title: 'Founder, General Overseer and Presiding Bishop',
+    name: 'His Grace: RT. Rev Zerubabbel',
     level: 1,
-    imageUrl: 'https://randomuser.me/api/portraits/men/45.jpg',
+    imageUrl: '/img/img1.jpg',
   },
   {
     title: 'Associate Pastor',
-    name: 'Dr. Mrs Zerubabbel',
+    name: 'Lady Pastor Mary Zerubabbel O.',
     level: 2,
-    imageUrl: 'https://randomuser.me/api/portraits/women/44.jpg',
-  },
-  {
-    title: 'Worship Pastor',
-    name: 'Mark Davis',
-    level: 2,
-    imageUrl: 'https://randomuser.me/api/portraits/men/46.jpg',
-  },
-  {
-    title: 'Youth Pastor',
-    name: 'David Wilson',
-    level: 2,
-    imageUrl: 'https://randomuser.me/api/portraits/men/47.jpg',
-  },
-  {
-    title: "Children's Pastor",
-    name: 'Lisa Brown',
-    level: 2,
-    imageUrl: 'https://randomuser.me/api/portraits/women/48.jpg',
+    imageUrl: '/img/img2.jpg',
   },
 ];
 
@@ -56,19 +44,37 @@ const administration: Position[] = [
     imageUrl: 'https://randomuser.me/api/portraits/men/49.jpg',
   },
   {
-    title: 'Finance Manager',
+    title: 'Worship Minister',
     name: 'Jennifer Lee',
     level: 2,
     imageUrl: 'https://randomuser.me/api/portraits/women/49.jpg',
   },
   {
-    title: 'Operations Manager',
+    title: 'Youth Pastor',
     name: 'Michael Chen',
     level: 2,
     imageUrl: 'https://randomuser.me/api/portraits/men/50.jpg',
   },
   {
-    title: 'Communications Director',
+    title: 'Children Church',
+    name: 'Amanda White',
+    level: 2,
+    imageUrl: 'https://randomuser.me/api/portraits/women/50.jpg',
+  },
+  {
+    title: 'Resident/Operational Pastor',
+    name: 'Amanda White',
+    level: 2,
+    imageUrl: 'https://randomuser.me/api/portraits/women/50.jpg',
+  },
+  {
+    title: 'Vision 2030 Pastor',
+    name: 'Amanda White',
+    level: 2,
+    imageUrl: 'https://randomuser.me/api/portraits/women/50.jpg',
+  },
+  {
+    title: 'Media and Press Director',
     name: 'Amanda White',
     level: 2,
     imageUrl: 'https://randomuser.me/api/portraits/women/50.jpg',
@@ -77,56 +83,122 @@ const administration: Position[] = [
 
 const ministryLeads: Position[] = [
   {
-    title: "Men's Ministry Leader",
+    title: "Men-Eagles Ministry Leader",
     name: 'James Anderson',
     level: 1,
-    department: "Men's Ministry",
-    imageUrl: 'https://randomuser.me/api/portraits/men/51.jpg',
+    department: "Men/Brother's Ministry",
+    imageUrl: '/img/img1.jpg',
   },
   {
-    title: "Women's Ministry Leader",
+    title: "Women-Excellent Ministry Leader",
     name: 'Dr. Grace Adeyemi',
     level: 1,
-    department: "Women's Ministry",
+    department: "Women/Sister's Fellowship",
     imageUrl: 'https://randomuser.me/api/portraits/women/51.jpg',
   },
   {
-    title: 'Singles Ministry Leader',
+    title: 'Dynamic Youth Ministry Leader',
     name: 'Peter Okafor',
     level: 1,
-    department: 'Singles Ministry',
+    department: 'Youth Ministry',
     imageUrl: 'https://randomuser.me/api/portraits/men/52.jpg',
   },
   {
     title: 'Couples Ministry Leader',
     name: 'Mr. & Mrs. Eze',
     level: 1,
-    department: 'Couples Ministry',
+    department: 'True-Love Network/Couples Ministry',
     imageUrl: 'https://randomuser.me/api/portraits/lego/1.jpg',
   },
   {
-    title: 'Senior Adults Leader',
+    title: 'Evangelism Leader',
     name: 'Elder John Smith',
     level: 1,
-    department: 'Senior Adults',
+    department: 'Evangelical and Outreach',
     imageUrl: 'https://randomuser.me/api/portraits/men/53.jpg',
   },
   {
-    title: 'Community Outreach Leader',
+    title: 'Protocol Leader',
     name: 'Grace Nwankwo',
     level: 1,
-    department: 'Outreach',
+    department: 'Protocol and Security',
     imageUrl: 'https://randomuser.me/api/portraits/women/52.jpg',
+  },
+  {
+    title: 'Decoration Leader',
+    name: 'Edet Nwankwo',
+    level: 1,
+    department: 'Decoration and Sanitation',
+    imageUrl: 'https://randomuser.me/api/portraits/women/53.jpg',
+  },
+  {
+    title: 'Technical Leader',
+    name: 'Edet Nwankwo',
+    level: 1,
+    department: 'Technical and Works',
+    imageUrl: 'https://randomuser.me/api/portraits/women/53.jpg',
+  },
+  {
+    title: 'Welfare Ministry Leader',
+    name: 'Edet Nwankwo',
+    level: 1,
+    department: 'Welfare Ministry',
+    imageUrl: 'https://randomuser.me/api/portraits/women/53.jpg',
+  },
+  {
+    title: 'Youth Miinistry Co-ordinator',
+    name: 'Edet Nwankwo',
+    level: 1,
+    department: 'Youth Ministry',
+    imageUrl: 'https://randomuser.me/api/portraits/women/53.jpg',
+  },
+  {
+    title: 'Geronto-Fellowship Leader',
+    name: 'Edet Nwankwo',
+    level: 1,
+    department: 'Adults Fellowship',
+    imageUrl: 'https://randomuser.me/api/portraits/women/53.jpg',
+  },
+  {
+    title: 'Maternity Ministry Co-ordinator',
+    name: 'Edet Nwankwo',
+    level: 1,
+    department: 'Maternity Ministry',
+    imageUrl: 'https://randomuser.me/api/portraits/women/53.jpg',
   },
 ];
 
-const elders = [
-  'Elder Samuel Okoye',
-  'Elder Mary Adebayo',
-  'Elder Thomas Nwosu',
-  'Elder Ruth Okoro',
-  'Elder Paul Eze',
-  'Elder Elizabeth Bala',
+const elders: Elders[] = [
+  {
+    title: "Marriage Counselor Leader",
+    name: "Elder Samuel Okoye",
+    imageUrl: "/img/img1.jpg",
+  },
+  {
+    title: "Reconciliation Ministry Leader",
+    name: "Elder Mary Adebayo",
+    imageUrl: "https://randomuser.me/api/portraits/women/54.jpg",
+  },
+  {
+    title: "Church Property Leader",
+    name: "Elder Thomas Nwosu",
+    imageUrl: "https://randomuser.me/api/portraits/men/55.jpg",
+  },
+  {
+    title: "SDS-Coordinator",
+    name: "Elder Ruth Okoro",
+    imageUrl: "https://randomuser.me/api/portraits/women/55.jpg",
+  },
+  {
+    title: "Fellowship Team Leader",
+    name: "Elder Paul Eze",
+    imageUrl: "https://randomuser.me/api/portraits/men/56.jpg",
+  },
+  {
+    title: "Prayer Band Leader",
+    name: "Elder Elizabeth Bala",
+    imageUrl: "https://randomuser.me/api/portraits/women/56.jpg",
+  },
 ];
 
 const Organogram: React.FC = () => {
@@ -149,41 +221,25 @@ const Organogram: React.FC = () => {
       <section className="py-16 bg-white dark:bg-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            Senior Leadership Team
+            Core Leadership Team
           </h2>
           <p className="text-xl text-gray-600 mb-12">
             The pastoral team that provides spiritual leadership and vision for
             our church
           </p>
 
-          <div className="flex flex-col items-center">
-            {/* Senior Pastor */}
-            <div className="mb-8">
-              <div className="bg-blue-600 text-white rounded-lg p-6 text-center max-w-xs mx-auto">
-                <img
-                  src={leadership[0].imageUrl}
-                  alt={leadership[0].name}
-                  className="mx-auto mb-4 h-24 w-24 rounded-full object-cover border-4 border-blue-400"
-                />
-                <h3 className="font-bold text-lg">{leadership[0].title}</h3>
-                <p className="text-blue-100">{leadership[0].name}</p>
-              </div>
-            </div>
-
-            {/* Associate Pastors */}
-            <div className="grid md:grid-cols-4 gap-6 mb-8 w-full max-w-5xl">
-              {leadership.slice(1).map((position, index) => (
-                <div
-                  key={index}
-                  className="bg-indigo-500 text-white rounded-lg p-4 text-center"
-                >
+          <div className="flex flex-col items-center ">
+            {/* Core Pastor */}
+            <div className="mb-8 grid md:grid-cols-2 gap-6 w-full max-w-5xl">
+              {leadership.map((position, index) => (
+                <div key={index} className="bg-green-600 text-white rounded-lg p-6 text-center w-full max-w-xs mx-auto">
                   <img
                     src={position.imageUrl}
                     alt={position.name}
-                    className="mx-auto mb-3 h-16 w-16 rounded-full object-cover border-2 border-indigo-300"
+                    className="mx-auto mb-4 h-24 w-24 rounded-full object-cover border-4 border-green-400"
                   />
-                  <h4 className="font-semibold text-sm">{position.title}</h4>
-                  <p className="text-indigo-100 text-sm">{position.name}</p>
+                  <h3 className="font-bold text-lg text-blue-100">{position.title}</h3>
+                  <p className="text-white font-bold">{position.name}</p>
                 </div>
               ))}
             </div>
@@ -191,52 +247,41 @@ const Organogram: React.FC = () => {
         </div>
       </section>
 
+
       {/* Administration */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-white dark:bg-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            Administrative Team
+            Concentrated Administrative Team
           </h2>
           <p className="text-xl text-gray-600 mb-12">
             The administrative professionals who ensure smooth church operations
           </p>
 
-          <div className="flex flex-col items-center">
-            {/* Church Administrator */}
-            <div className="mb-8">
-              <div className="bg-green-600 text-white rounded-lg p-6 text-center max-w-xs mx-auto">
+          <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+            {administration.map((position, index) => (
+              <div
+                key={index}
+                className="bg-purple-100 border border-purple-200 rounded-lg p-6 text-center"
+              >
                 <img
-                  src={administration[0].imageUrl}
-                  alt={administration[0].name}
-                  className="mx-auto mb-4 h-24 w-24 rounded-full object-cover border-4 border-green-400"
+                  src={position.imageUrl}
+                  alt={position.name}
+                  className="mx-auto mb-4 h-20 w-20 rounded-full object-cover border-4 border-purple-400"
                 />
-                <h3 className="font-bold text-lg">
-                  {administration[0].title}
-                </h3>
-                <p className="text-green-100">{administration[0].name}</p>
+                <h4 className="font-semibold text-gray-900 mb-1">
+                  {position.title}
+                </h4>
+                <p className="text-purple-600 font-medium mb-2">{position.name}</p>
+                {position.department && (
+                  <p className="text-gray-600 text-sm">{position.department}</p>
+                )}
               </div>
-            </div>
-
-            {/* Department Managers */}
-            <div className="grid md:grid-cols-3 gap-6 w-full max-w-5xl">
-              {administration.slice(1).map((position, index) => (
-                <div
-                  key={index}
-                  className="bg-green-500 text-white rounded-lg p-4 text-center"
-                >
-                  <img
-                    src={position.imageUrl}
-                    alt={position.name}
-                    className="mx-auto mb-3 h-16 w-16 rounded-full object-cover border-2 border-green-300"
-                  />
-                  <h4 className="font-semibold text-sm">{position.title}</h4>
-                  <p className="text-green-100 text-sm">{position.name}</p>
-                </div>
-              ))}
-            </div>
+            ))}
           </div>
         </div>
       </section>
+
 
       {/* Ministry Leaders */}
       <section className="py-16 bg-white dark:bg-gray-200">
@@ -249,7 +294,8 @@ const Organogram: React.FC = () => {
             groups
           </p>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+
+          <div className={`grid md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-7xl mx-auto ${ministryLeads.length > 8 ? "max-h-[600px] overflow-y-auto overscroll-auto" : ""}`}>
             {ministryLeads.map((position, index) => (
               <div
                 key={index}
@@ -277,7 +323,7 @@ const Organogram: React.FC = () => {
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            Board of Elders
+            Board of Elders/Counselors
           </h2>
           <p className="text-xl text-gray-600 mb-12">
             Spiritual oversight and governance for the church body
@@ -289,11 +335,13 @@ const Organogram: React.FC = () => {
                 key={idx}
                 className="bg-white border border-gray-200 rounded-lg p-6 text-center shadow-sm"
               >
-                <div className="bg-gray-600 text-white rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4">
-                  <BookOpen className="h-6 w-6" />
-                </div>
-                <h4 className="font-semibold text-gray-900">{elder}</h4>
-                <p className="text-gray-600 text-sm">Church Elder</p>
+                <img
+                  src={elder.imageUrl}
+                  alt={elder.name}
+                  className="mx-auto mb-4 h-20 w-20 rounded-full object-cover border-4 border-gray-400"
+                />
+                <h4 className="font-semibold text-gray-900">{elder.name}</h4>
+                <p className="text-gray-600 text-sm">{elder.title}</p>
               </div>
             ))}
           </div>
@@ -305,11 +353,17 @@ const Organogram: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-4">Our Leadership Principles</h2>
           <p className="text-xl text-indigo-100 max-w-3xl mx-auto mb-12">
-            Our organizational structure is built on biblical principles of
-            leadership and service
+            Our Organizational structure is built on biblical principles of servant leadership and result oriented service
           </p>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+            <div>
+              <Church className="h-12 w-12 mx-auto mb-4 text-indigo-200" />
+              <h3 className="text-xl font-semibold mb-2">Divine Priority</h3>
+              <p className="text-indigo-100">
+                Putting God first and his mandate next before ours
+              </p>
+            </div>
             <div>
               <Users className="h-12 w-12 mx-auto mb-4 text-indigo-200" />
               <h3 className="text-xl font-semibold mb-2">Servant Leadership</h3>

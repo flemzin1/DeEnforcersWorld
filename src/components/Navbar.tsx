@@ -127,16 +127,18 @@ const Navbar: React.FC = () => {
   };
 
   const churchName = "De Enforcers World";
-  const logoUrl = "";
+  const logoUrl1 = "/img/enforcer1.png";
+  const logoUrl2 = "/img/enforcer2.png";
 
   return (
     <nav className="bg-white border-gray-200 dark:bg-white-900 dark:border-gray-700 shadow-lg">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="/" className="flex items-center space-x-1 rtl:space-x-reverse">
-          {logoUrl ? (
+          {logoUrl1 ? (
             <>
-              <img src={logoUrl} className="h-8" alt={churchName} />
+              <img src={logoUrl1} className="h-8 rounded-2xl"  alt={churchName} />
               <span className="self-center text-2xl font-semibold whitespace-nowrap">{churchName}</span>
+              <img src={logoUrl2} className="h-8 rounded-2xl" alt={churchName} />
             </>
           ) : (
             <span className="self-center text-2xl font-semibold whitespace-nowrap">{churchName}</span>
