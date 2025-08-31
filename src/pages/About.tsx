@@ -171,20 +171,24 @@ const About: React.FC = () => {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="bg-gray-200 rounded-full w-32 h-32 flex items-center justify-center mx-auto mb-4">
-                <User className="h-16 w-16 text-gray-400" />
-              </div>
-              <h3 className="text-xl font-semibold mb-1">Pastor Zerubabbel</h3>
-              <p className="text-gray-600 mb-2">Senior Pastor</p>
+              <img
+                src="/img/zeru1.jpg"
+                alt="Rev Zerubabbel G.W"
+                className="flex items-center justify-center mx-auto mb-4 h-32 w-32 rounded-full object-cover border-4 border-gray-400"
+              />
+              <h3 className="text-xl font-semibold mb-1">His Grace: RT. Rev Zerubabbel G.W</h3>
+              <p className="text-gray-600 mb-2">Founder, General Overseer and Presiding Bishop</p>
               <p className="text-sm text-gray-500">
                 Leading our congregation with wisdom and compassion for over 15 years
               </p>
             </div>
             <div className="text-center">
-              <div className="bg-gray-200 rounded-full w-32 h-32 flex items-center justify-center mx-auto mb-4">
-                <User className="h-16 w-16 text-gray-400" />
-              </div>
-              <h3 className="text-xl font-semibold mb-1">Pastor Sarah Johnson</h3>
+              <img
+                src="/img/mary1.jpg"
+                alt="Lady Pastor Mary"
+                className="flex items-center justify-center mx-auto mb-4 h-32 w-32 rounded-full object-cover border-4 border-gray-400"
+              />
+              <h3 className="text-xl font-semibold mb-1">Lady Pastor Mary Zerubabbel O.</h3>
               <p className="text-gray-600 mb-2">Associate Pastor</p>
               <p className="text-sm text-gray-500">
                 Passionate about discipleship and community outreach ministries
@@ -247,11 +251,11 @@ const About: React.FC = () => {
           <p className="text-gray-600 dark:text-gray-300">
             {tabMeta[activeTab].description.includes('\n')
               ? tabMeta[activeTab].description.split('\n').map((line, index) => (
-                  <span key={index}>
-                    {line}
-                    <br />
-                  </span>
-                ))
+                <span key={index}>
+                  {line}
+                  <br />
+                </span>
+              ))
               : tabMeta[activeTab].description}
           </p>
           {tabMeta[activeTab].lists.length > 0 && (
@@ -267,6 +271,6 @@ const About: React.FC = () => {
       </section>
     </div>
   );
-}; 
+};
 
 export default About;

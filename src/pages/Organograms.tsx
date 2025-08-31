@@ -24,15 +24,15 @@ interface Elders {
 const leadership: Position[] = [
   {
     title: 'Founder, General Overseer and Presiding Bishop',
-    name: 'His Grace: RT. Rev Zerubabbel',
+    name: 'His Grace: RT. Rev Zerubabbel G.W.',
     level: 1,
-    imageUrl: '/img/img1.jpg',
+    imageUrl: '/img/zeru1.jpg',
   },
   {
     title: 'Associate Pastor',
     name: 'Lady Pastor Mary Zerubabbel O.',
     level: 2,
-    imageUrl: '/img/img2.jpg',
+    imageUrl: '/img/mary1.jpg',
   },
 ];
 
@@ -56,7 +56,7 @@ const administration: Position[] = [
     imageUrl: 'https://randomuser.me/api/portraits/men/50.jpg',
   },
   {
-    title: 'Children Church',
+    title: 'Children Church Pastor',
     name: 'Amanda White',
     level: 2,
     imageUrl: 'https://randomuser.me/api/portraits/women/50.jpg',

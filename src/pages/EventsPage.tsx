@@ -39,7 +39,7 @@ const eventsByDate: Event[] = [
     time: "4pm",
     startDate: "Aug 28 2025",
     enddate: "Aug 31, 2025",
-    image: "https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg",
+    image: "/img/medic.jpg",
     location: "Land of Springs/nI-Point Junction Choba Extension By 1st Mechanic Bus-Stop Off UPTH East-West Road PH",
   },
 ];
@@ -178,16 +178,100 @@ const eventsByType: Event[] = [
     location: "",
   },
   {
-    id: 20,
-    title: "Outreach Program",
+    id: 13,
+    title: "Covenant Day Of Prayers",
     theme: "",
-    description: "Providing aid to the local community.",
+    description: "A day dedicated to prayer and intercession.",
     eventsType: "Monthly",
-    time: "7pm",
-    startDate: "May 10, 2025",
-    enddate: "May 13, 2025",
+    time: "1st Day of Each Month",
+    startDate: "",
+    enddate: "",
     image: "https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg",
-    location: "Faith Hall",
+    location: "",
+  },
+  {
+    id: 14,
+    title: "General Pastors/Hunters/Workers Meeting",
+    theme: "",
+    description: "A meeting for all pastors, hunters, and workers to discuss church matters.",
+    eventsType: "Monthly",
+    time: "1st Saturday of Each Month",
+    startDate: "",
+    enddate: "",
+    image: "https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg",
+    location: "",
+  },
+  {
+    id: 15,
+    title: "Thanksgiving/Blood Battle",
+    theme: "",
+    description: "A day dedicated to gratitude and reflection.",
+    eventsType: "Monthly",
+    time: "1st Sunday of Each Month",
+    startDate: "",
+    enddate: "",
+    image: "https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg",
+    location: "",
+  },
+  {
+    id: 16,
+    title: "General Hunting For Souls",
+    theme: "",
+    description: "Dedicated to soul-winning efforts.",
+    eventsType: "Monthly",
+    time: "Every Friday of Each Month",
+    startDate: "",
+    enddate: "",
+    image: "https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg",
+    location: "",
+  },
+  {
+    id: 17,
+    title: "Dedications And Testimony services",
+    theme: "",
+    description: "A time to share personal testimonies and dedication services of the Lord Doings.",
+    eventsType: "Monthly",
+    time: "2nd Sunday of Each Month",
+    startDate: "",
+    enddate: "",
+    image: "https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg",
+    location: "",
+  },
+  {
+    id: 18,
+    title: "Healing and Miracles Service",
+    theme: "",
+    description: "A day dedicated to healing and miracles.",
+    eventsType: "Monthly",
+    time: "2nd Sunday of Each Month",
+    startDate: "",
+    enddate: "",
+    image: "https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg",
+    location: "",
+  },
+  {
+    id: 19,
+    title: "Special Annual Programmes For the Month",
+    theme: "",
+    description: "A day of special programs and activities.",
+    eventsType: "Monthly",
+    time: "3rd Sunday of Each Month",
+    startDate: "",
+    enddate: "",
+    image: "https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg",
+    location: "",
+  },
+  {
+    id: 13,
+    title: "Cultural Heritage Celebration",
+    theme: "",
+    description: "A day dedicated to celebrating our cultural heritage.",
+    eventsType: "Monthly",
+    time: "5th Sunday of Each Month",
+    startDate: "",
+    enddate: "",
+    image: "https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg",
+    location: "",
   },
   {
     id: 26,
@@ -512,7 +596,7 @@ const ChurchEvents: React.FC = () => {
 
           {/* Date-based */}
           <h2 className="text-4xl font-bold text-white dark:text-gray-800 mb-6">
-            Events by Date
+            Events Schedule
           </h2>
           <ul className="flex justify-center gap-4 mb-6">
             {dateTabs.map((tab) => (
@@ -553,7 +637,7 @@ const ChurchEvents: React.FC = () => {
 
           {/* Type-based */}
           <h2 className="text-4xl font-bold text-white dark:text-gray-800 mb-6">
-            Events by Type
+            Events Category
           </h2>
           <ul className="flex justify-center gap-4 mb-6">
             {typeTabs.map((tab) => (

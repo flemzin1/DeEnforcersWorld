@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Search, Filter, X } from 'lucide-react';
 import { Modal, Button } from 'flowbite-react';
 import ContactModal from '../components/ContactModal';
+import EmptyState from "../components/EmptyState";
 
 interface BlogPost {
     id: number;
@@ -14,33 +15,33 @@ interface BlogPost {
 }
 
 const blogPosts: BlogPost[] = [
-    {
-        id: 1,
-        title: 'Sunday Service Recap',
-        summary: 'Catch up on the highlights from our last Sunday service...',
-        content: 'We had an amazing time of worship and teaching from Pastor John on the topic of faith and perseverance...',
-        date: '2025-06-08',
-        category: 'Services',
-        image: 'https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg',
-    },
-    {
-        id: 2,
-        title: 'Youth Outreach Success',
-        summary: 'Our youth ministry reached over 300 students during the outreach!',
-        content: 'The outreach was packed with fun, games, gospel presentations, and lots of food. We are so proud of the youth leaders...',
-        date: '2025-05-28',
-        category: 'Outreach',
-        image: 'https://flowbite.s3.amazonaws.com/docs/jumbotron/image-2.jpg',
-    },
-    {
-        id: 3,
-        title: 'Upcoming Praise Night',
-        summary: 'Get ready for our monthly praise night. Here’s what you need to know...',
-        content: 'Praise night is back! Join us for a powerful time of worship. This month we’ll be led by guest ministers from the city...',
-        date: '2025-06-15',
-        category: 'Events',
-        image: 'https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg',
-    },
+    // {
+    //     id: 1,
+    //     title: 'Sunday Service Recap',
+    //     summary: 'Catch up on the highlights from our last Sunday service...',
+    //     content: 'We had an amazing time of worship and teaching from Pastor John on the topic of faith and perseverance...',
+    //     date: '2025-06-08',
+    //     category: 'Services',
+    //     image: 'https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg',
+    // },
+    // {
+    //     id: 2,
+    //     title: 'Youth Outreach Success',
+    //     summary: 'Our youth ministry reached over 300 students during the outreach!',
+    //     content: 'The outreach was packed with fun, games, gospel presentations, and lots of food. We are so proud of the youth leaders...',
+    //     date: '2025-05-28',
+    //     category: 'Outreach',
+    //     image: 'https://flowbite.s3.amazonaws.com/docs/jumbotron/image-2.jpg',
+    // },
+    // {
+    //     id: 3,
+    //     title: 'Upcoming Praise Night',
+    //     summary: 'Get ready for our monthly praise night. Here’s what you need to know...',
+    //     content: 'Praise night is back! Join us for a powerful time of worship. This month we’ll be led by guest ministers from the city...',
+    //     date: '2025-06-15',
+    //     category: 'Events',
+    //     image: 'https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg',
+    // },
 ];
 
 const ChurchBlog: React.FC = () => {
@@ -66,7 +67,7 @@ const ChurchBlog: React.FC = () => {
             <header className="bg-gradient-to-r from-indigo-600 via-gray-700 text-white py-16">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                        Our Blogs Posts
+                        Our Enforcers Blogs Windows
                     </h1>
                     <p className="text-xl md:text-2xl max-w-3xl mx-auto">
                         Take a moment to review our posts and blogs with recent Information.
@@ -87,7 +88,7 @@ const ChurchBlog: React.FC = () => {
                         <ContactModal show={modalOpen} onClose={() => setModalOpen(false)} />
 
                     </div>
-                    <h1 className="text-3xl font-bold mb-6">Church Blog</h1>
+                    <h1 className="text-3xl font-bold mb-6">Church Window</h1>
 
                     <section className="py-6 mb-6">
                         <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row gap-4 items-center justify-between">
@@ -133,32 +134,37 @@ const ChurchBlog: React.FC = () => {
 
                     {/* Blog Grid */}
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {filteredPosts.map((post) => (
-                            <div key={post.id} className="bg-white rounded-lg shadow-md overflow-hidden">
-                                <img src={post.image} alt={post.title} className="w-full h-40 object-cover" />
-                                <div className="p-4">
-                                    <p className="text-sm text-gray-500">
-                                        {new Date(post.date).toLocaleDateString(undefined, {
-                                            year: 'numeric',
-                                            month: 'long',
-                                            day: 'numeric',
-                                        })}{' '}
-                                        · {post.category}
-                                    </p>
-                                    <h2 className="text-lg font-semibold mt-2">{post.title}</h2>
-                                    <p className="text-sm mt-1">{post.summary}</p>
-                                    <Button
-                                        onClick={() => {
-                                            setSelectedPost(post);
-                                            setIsModalOpen(true);
-                                        }}
-                                        className="mt-3 text-white bg-gradient-to-br from-blue-600 via-gray-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-50 font-medium rounded-lg text-sm px-5 py-2.5"
-                                    >
-                                        Read More
-                                    </Button>
+                        {filteredPosts.length ? (
+                            filteredPosts.map((post) => (
+                                <div key={post.id} className="bg-white rounded-lg shadow-md overflow-hidden">
+                                    <img src={post.image} alt={post.title} className="w-full h-40 object-cover" />
+                                    <div className="p-4">
+                                        <p className="text-sm text-gray-500">
+                                            {new Date(post.date).toLocaleDateString(undefined, {
+                                                year: 'numeric',
+                                                month: 'long',
+                                                day: 'numeric',
+                                            })}{' '}
+                                            · {post.category}
+                                        </p>
+                                        <h2 className="text-lg font-semibold mt-2">{post.title}</h2>
+                                        <p className="text-sm mt-1">{post.summary}</p>
+                                        <Button
+                                            onClick={() => {
+                                                setSelectedPost(post);
+                                                setIsModalOpen(true);
+                                            }}
+                                            className="mt-3 text-white bg-gradient-to-br from-blue-600 via-gray-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-50 font-medium rounded-lg text-sm px-5 py-2.5"
+                                        >
+                                            Read More
+                                        </Button>
+                                    </div>
                                 </div>
-                            </div>
-                        ))}
+                            ))
+                        ) : (
+                                // <p className="text-gray-900 dark:text-white-900">No Blogs Available.</p>
+                            <EmptyState />
+                        )}
                     </div>
 
                     {/* Modal */}

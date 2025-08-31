@@ -81,6 +81,23 @@ const AppContent: React.FC = () => {
         <title>{title}</title>
         <meta name="description" content={description} />
         <link rel="canonical" href={canonicalUrl} />
+         <link rel="apple-touch-icon" sizes="57x57" href="/img/favicongenerator.io/favicon-57x57.png" type="image/png" />
+  <link rel="apple-touch-icon" sizes="60x60" href="/img/favicongenerator.io/favicon-60x60.png" type="image/png" />
+  <link rel="apple-touch-icon" sizes="72x72" href="/img/favicongenerator.io/favicon-72x72.png" type="image/png" />
+  <link rel="apple-touch-icon" sizes="114x114" href="/img/favicongenerator.io/favicon-114x114.png" type="image/png" />
+  <link rel="apple-touch-icon" sizes="120x120" href="/img/favicongenerator.io/favicon-120x120.png" type="image/png" />
+  <link rel="apple-touch-icon" sizes="144x144" href="/img/favicongenerator.io/favicon-144x144.png" type="image/png" />
+  <link rel="apple-touch-icon" sizes="152x152" href="/img/favicongenerator.io/favicon-152x152.png" type="image/png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicongenerator.io/favicon-180x180.png" type="image/png" />
+  <link rel="icon" sizes="16x16" href="/img/favicongenerator.io/favicon-16x16.png" type="image/png" />
+  <link rel="icon" sizes="32x32" href="/img/favicongenerator.io/favicon-32x32.png" type="image/png" />
+  <link rel="icon" sizes="96x96" href="/img/favicongenerator.io/favicon-96x96.png" type="image/png" />
+  <link rel="icon" sizes="192x192" href="/img/favicongenerator.io/favicon-192x192.png" type="image/png" />
+  <link rel="icon" sizes="512x512" href="/img/favicongenerator.io/favicon-512x512.png" type="image/png" />
+  <link rel="manifest" href="/man/fest.json" />
+  <meta name="theme-color" content="#FFFFFF" />
+  <meta name="msapplication-TileColor" content="#FFFFFF" />
+  <meta name="msapplication-TileImage" content="/img/favicongenerator.io/favicon-512x512.png" />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={canonicalUrl} />

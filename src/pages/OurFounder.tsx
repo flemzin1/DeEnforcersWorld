@@ -1,5 +1,5 @@
 import React from 'react';
-import { User, Calendar, Award, BookOpen, Heart, Users } from 'lucide-react';
+import { Calendar, Award, BookOpen, Heart, Users } from 'lucide-react';
 
 const OurFounder: React.FC = () => {
   return (
@@ -21,12 +21,17 @@ const OurFounder: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="bg-gray-200 rounded-lg h-96 flex items-center justify-center mb-6">
-                <User className="h-32 w-32 text-gray-400" />
+              <div className="bg-gray-200 rounded-lg h-96 w-full flex items-center justify-center mb-6">
+                {/* <User className="h-32 w-32 text-gray-400" /> */}
+                <img
+                src="/img/zeru1.jpg"
+                alt="Rev Zerubabbel G.W"
+                className="flex items-center justify-center mx-auto h-96 w-96  mb-4  rounded-lg object-cover border-4 border-gray-400"
+              />
               </div>
               <div className="text-center">
                 <h2 className="text-2xl font-bold text-gray-900">Pastor Dr. Zerubabbel</h2>
-                <p className="text-gray-600 text-lg">Founder & Senior Pastor</p>
+                <p className="text-gray-600 text-lg">Founder, General Overseer and Presiding Bishop</p>
               </div>
             </div>
 
@@ -193,7 +198,7 @@ const OurFounder: React.FC = () => {
           </p>
           <div className="grid md:grid-cols-4 gap-6 text-center">
             <div>
-              <div className="text-3xl font-bold mb-2">25+</div>
+              <div className="text-3xl font-bold mb-2">30+</div>
               <div className="text-blue-100">Years of Ministry</div>
             </div>
             <div>
@@ -201,7 +206,7 @@ const OurFounder: React.FC = () => {
               <div className="text-blue-100">Church Members</div>
             </div>
             <div>
-              <div className="text-3xl font-bold mb-2">4</div>
+              <div className="text-3xl font-bold mb-2">12</div>
               <div className="text-blue-100">Satellite Centers</div>
             </div>
             <div>
