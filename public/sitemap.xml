@@ -10,7 +10,23 @@
 <url>
   <loc>https://deenforcersworld.com/</loc>
   <lastmod>2025-07-13T18:47:38+00:00</lastmod>
+  <priority>1.0</priority>
 </url>
+ <url>
+    <loc>https://deenforcersworld.com/about</loc>
+    <lastmod>2025-08-29</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://deenforcersworld.com/events</loc>
+    <lastmod>2025-08-29</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://deenforcersworld.com/founder</loc>
+    <lastmod>2025-08-29</lastmod>
+    <priority>0.8</priority>
+  </url>
 
 
 </urlset>
