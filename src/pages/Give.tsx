@@ -2,46 +2,36 @@ import React, { useState } from 'react';
 import { ClipboardCopy, Check } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+const account = {
+  name: import.meta.env.VITE_ACCOUNT_NAME,
+  number: import.meta.env.VITE_ACCOUNT_NUMBER,
+  bank: import.meta.env.VITE_ACCOUNT_BANK
+};
+
 const giveOptions = [
   {
     id: 'offering',
     title: 'Offering',
     details: 'You can give your offering to the church through the account below.',
-    account: {
-      name: import.meta.env.VITE_OFFERING_NAME,
-      number: import.meta.env.VITE_OFFERING_NUMBER,
-      bank: import.meta.env.VITE_OFFERING_BANK
-    }
+    account: account,
   },
   {
     id: 'donation',
     title: 'Donation',
     details: 'Support our ministry and outreaches through your donations.',
-    account: {
-      name: import.meta.env.VITE_DONATION_NAME,
-      number: import.meta.env.VITE_DONATION_NUMBER,
-      bank: import.meta.env.VITE_DONATION_BANK
-    }
+    account: account,
   },
   {
     id: 'tithes',
     title: 'Tithes',
     details: 'Give your 10% to honor the Lord and support His work.',
-    account: {
-      name: import.meta.env.VITE_TITHES_NAME,
-      number: import.meta.env.VITE_TITHES_NUMBER,
-      bank: import.meta.env.VITE_TITHES_BANK
-    }
+    account: account,
   },
   {
     id: 'seed',
     title: 'Seed Faith',
     details: 'Plant a seed of faith and trust God for a harvest.',
-    account: {
-      name: import.meta.env.VITE_SEED_NAME,
-      number: import.meta.env.VITE_SEED_NUMBER,
-      bank: import.meta.env.VITE_SEED_BANK
-    }
+    account: account,
   }
 ];
 

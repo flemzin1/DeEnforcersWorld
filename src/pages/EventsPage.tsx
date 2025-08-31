@@ -2,6 +2,8 @@ import React, { useState, useRef, useEffect } from "react";
 import { MapPinIcon, ClockIcon } from "@heroicons/react/24/solid";
 import ContactModal from "../components/ContactModal";
 import { Card, Modal, Button } from "flowbite-react";
+import EmptyState from "../components/EmptyState";
+
 
 interface Event {
   id: number;
@@ -623,7 +625,8 @@ const ChurchEvents: React.FC = () => {
                   <EventCard key={event.id} event={event} />
                 ))
               ) : (
-                <p className="text-gray-900 dark:text-white-900">No {activeDateTab} events.</p>
+                // <p className="text-gray-900 dark:text-white-900">No {activeDateTab} events.</p>
+                <EmptyState />
               )}
             </div>
             {upcomingState.scrollable && (

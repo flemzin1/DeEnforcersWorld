@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { MapPin, Clock, Phone, Mail, Users, Calendar } from 'lucide-react';
 import ContactModal from '../components/ContactModal';
+import EmptyState from '../components/EmptyState';
 
 interface SatelliteCenter {
   id: number;
@@ -18,54 +19,54 @@ interface SatelliteCenter {
 const SatelliteCenters: React.FC = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const centers: SatelliteCenter[] = [
-    {
-      id: 1,
-      name: "De Enforcers World - Northside",
-      address: "1234 North Street, Port Harcourt, Rivers State",
-      phone: "+234 801 234 5678",
-      email: "northside@denforcersworld.com",
-      pastor: "Pastor Michael Adebo",
-      serviceTime: "Sunday 9:00 AM & 11:00 AM",
-      description: "Serving the Northside community with love and faith since 2018",
-      established: "2018",
-      members: 450
-    },
-    {
-      id: 2,
-      name: "De Enforcers World - Eastside",
-      address: "5678 East Avenue, Port Harcourt, Rivers State",
-      phone: "+234 802 345 6789",
-      email: "eastside@denforcersworld.com",
-      pastor: "Pastor Grace Okoro",
-      serviceTime: "Sunday 8:30 AM & 10:30 AM",
-      description: "A vibrant community focused on youth and family ministries",
-      established: "2020",
-      members: 320
-    },
-    {
-      id: 3,
-      name: "De Enforcers World - Westside",
-      address: "9012 West Road, Port Harcourt, Rivers State",
-      phone: "+234 803 456 7890",
-      email: "westside@denforcersworld.com",
-      pastor: "Pastor David Nwosu",
-      serviceTime: "Sunday 9:30 AM & 11:30 AM",
-      description: "Committed to community outreach and social impact programs",
-      established: "2019",
-      members: 380
-    },
-    {
-      id: 4,
-      name: "De Enforcers World - Downtown",
-      address: "3456 Central Plaza, Port Harcourt, Rivers State",
-      phone: "+234 804 567 8901",
-      email: "downtown@denforcersworld.com",
-      pastor: "Pastor Jennifer Eze",
-      serviceTime: "Sunday 10:00 AM & 12:00 PM",
-      description: "Reaching professionals and urban families in the city center",
-      established: "2021",
-      members: 280
-    }
+    // {
+    //   id: 1,
+    //   name: "De Enforcers World - Northside",
+    //   address: "1234 North Street, Port Harcourt, Rivers State",
+    //   phone: "+234 801 234 5678",
+    //   email: "northside@denforcersworld.com",
+    //   pastor: "Pastor Michael Adebo",
+    //   serviceTime: "Sunday 9:00 AM & 11:00 AM",
+    //   description: "Serving the Northside community with love and faith since 2018",
+    //   established: "2018",
+    //   members: 450
+    // },
+    // {
+    //   id: 2,
+    //   name: "De Enforcers World - Eastside",
+    //   address: "5678 East Avenue, Port Harcourt, Rivers State",
+    //   phone: "+234 802 345 6789",
+    //   email: "eastside@denforcersworld.com",
+    //   pastor: "Pastor Grace Okoro",
+    //   serviceTime: "Sunday 8:30 AM & 10:30 AM",
+    //   description: "A vibrant community focused on youth and family ministries",
+    //   established: "2020",
+    //   members: 320
+    // },
+    // {
+    //   id: 3,
+    //   name: "De Enforcers World - Westside",
+    //   address: "9012 West Road, Port Harcourt, Rivers State",
+    //   phone: "+234 803 456 7890",
+    //   email: "westside@denforcersworld.com",
+    //   pastor: "Pastor David Nwosu",
+    //   serviceTime: "Sunday 9:30 AM & 11:30 AM",
+    //   description: "Committed to community outreach and social impact programs",
+    //   established: "2019",
+    //   members: 380
+    // },
+    // {
+    //   id: 4,
+    //   name: "De Enforcers World - Downtown",
+    //   address: "3456 Central Plaza, Port Harcourt, Rivers State",
+    //   phone: "+234 804 567 8901",
+    //   email: "downtown@denforcersworld.com",
+    //   pastor: "Pastor Jennifer Eze",
+    //   serviceTime: "Sunday 10:00 AM & 12:00 PM",
+    //   description: "Reaching professionals and urban families in the city center",
+    //   established: "2021",
+    //   members: 280
+    // }
   ];
 
   return (
@@ -124,77 +125,81 @@ const SatelliteCenters: React.FC = () => {
       <section className="py-16 bg-white dark:bg-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-8">
-            {centers.map((center) => (
-              <div key={center.id} className="bg-white rounded-lg shadow-lg overflow-hidden">
-                <div className="p-8">
-                  <div className="flex items-start justify-between mb-4">
-                    <h3 className="text-2xl font-bold text-gray-900">{center.name}</h3>
-                    <span className="bg-purple-100 text-purple-800 text-sm font-medium px-3 py-1 rounded-full">
-                      Est. {center.established}
-                    </span>
-                  </div>
+            {centers.length ? (
+              centers.map((center) => (
+                <div key={center.id} className="bg-white rounded-lg shadow-lg overflow-hidden">
+                  <div className="p-8">
+                    <div className="flex items-start justify-between mb-4">
+                      <h3 className="text-2xl font-bold text-gray-900">{center.name}</h3>
+                      <span className="bg-purple-100 text-purple-800 text-sm font-medium px-3 py-1 rounded-full">
+                        Est. {center.established}
+                      </span>
+                    </div>
 
-                  <p className="text-gray-600 mb-6">{center.description}</p>
+                    <p className="text-gray-600 mb-6">{center.description}</p>
 
-                  <div className="space-y-4">
-                    <div className="flex items-start">
-                      <MapPin className="h-5 w-5 text-gray-400 mr-3 mt-1" />
-                      <div>
-                        <p className="font-medium text-gray-900">Address</p>
-                        <p className="text-gray-600">{center.address}</p>
+                    <div className="space-y-4">
+                      <div className="flex items-start">
+                        <MapPin className="h-5 w-5 text-gray-400 mr-3 mt-1" />
+                        <div>
+                          <p className="font-medium text-gray-900">Address</p>
+                          <p className="text-gray-600">{center.address}</p>
+                        </div>
+                      </div>
+
+                      <div className="flex items-start">
+                        <Clock className="h-5 w-5 text-gray-400 mr-3 mt-1" />
+                        <div>
+                          <p className="font-medium text-gray-900">Service Times</p>
+                          <p className="text-gray-600">{center.serviceTime}</p>
+                        </div>
+                      </div>
+
+                      <div className="flex items-start">
+                        <Users className="h-5 w-5 text-gray-400 mr-3 mt-1" />
+                        <div>
+                          <p className="font-medium text-gray-900">Lead Pastor</p>
+                          <p className="text-gray-600">{center.pastor}</p>
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-2 gap-4 pt-4">
+                        <div className="flex items-center">
+                          <Phone className="h-4 w-4 text-gray-400 mr-2" />
+                          <a href={`tel:${center.phone}`} className="text-blue-600 hover:text-blue-800 text-sm">
+                            {center.phone}
+                          </a>
+                        </div>
+                        <div className="flex items-center">
+                          <Mail className="h-4 w-4 text-gray-400 mr-2" />
+                          <a href={`mailto:${center.email}`} className="text-blue-600 hover:text-blue-800 text-sm">
+                            {center.email}
+                          </a>
+                        </div>
+                      </div>
+
+                      <div className="pt-4 border-t">
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm text-gray-500">Church Members</span>
+                          <span className="font-semibold text-gray-900">{center.members}</span>
+                        </div>
                       </div>
                     </div>
 
-                    <div className="flex items-start">
-                      <Clock className="h-5 w-5 text-gray-400 mr-3 mt-1" />
-                      <div>
-                        <p className="font-medium text-gray-900">Service Times</p>
-                        <p className="text-gray-600">{center.serviceTime}</p>
-                      </div>
+                    <div className="mt-6 flex space-x-3">
+                      <button className="flex-1 bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition-colors bg-gradient-to-br from-blue-600 via-gray-900 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-50 font-medium ">
+                        Visit Us
+                      </button>
+                      <button className="flex-1 border border-purple-600 text-purple-600 py-2 px-4 rounded-lg hover:bg-purple-50 transition-colors bg-gradient-to-br from-blue-600 via-white-900 hover:bg-gradient-to-bl">
+                        Get Directions
+                      </button>
                     </div>
-
-                    <div className="flex items-start">
-                      <Users className="h-5 w-5 text-gray-400 mr-3 mt-1" />
-                      <div>
-                        <p className="font-medium text-gray-900">Lead Pastor</p>
-                        <p className="text-gray-600">{center.pastor}</p>
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-2 gap-4 pt-4">
-                      <div className="flex items-center">
-                        <Phone className="h-4 w-4 text-gray-400 mr-2" />
-                        <a href={`tel:${center.phone}`} className="text-blue-600 hover:text-blue-800 text-sm">
-                          {center.phone}
-                        </a>
-                      </div>
-                      <div className="flex items-center">
-                        <Mail className="h-4 w-4 text-gray-400 mr-2" />
-                        <a href={`mailto:${center.email}`} className="text-blue-600 hover:text-blue-800 text-sm">
-                          {center.email}
-                        </a>
-                      </div>
-                    </div>
-
-                    <div className="pt-4 border-t">
-                      <div className="flex items-center justify-between">
-                        <span className="text-sm text-gray-500">Church Members</span>
-                        <span className="font-semibold text-gray-900">{center.members}</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="mt-6 flex space-x-3">
-                    <button className="flex-1 bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition-colors bg-gradient-to-br from-blue-600 via-gray-900 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-50 font-medium ">
-                      Visit Us
-                    </button>
-                    <button className="flex-1 border border-purple-600 text-purple-600 py-2 px-4 rounded-lg hover:bg-purple-50 transition-colors bg-gradient-to-br from-blue-600 via-white-900 hover:bg-gradient-to-bl">
-                      Get Directions
-                    </button>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))
+            ) : (
+              <EmptyState title='No Satellite Centers Found' message='Try checking back later or contact us for more information.'/>
+            )}
           </div>
         </div>
       </section>
