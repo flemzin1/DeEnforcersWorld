@@ -3,8 +3,8 @@ import React, { useState, useEffect } from 'react';
 const HomeCarousel: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-  const isLive = true; // Change to true if live streaming is active
-  const liveStreamUrl = "https://www.facebook.com/share/v/17C6Y33sYw/?mibextid=wwXIfr";
+  const isLive = false; // Change to true if live streaming is active
+  const liveStreamUrl = "";
   const logoUrl1 = "/img/enforcer1.png";
   const logoUrl2 = "/img/enforcer2.png";
 
